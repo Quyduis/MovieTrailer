@@ -1,4 +1,5 @@
 import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
+import HomeReducer from 'page/home/home-slice';
 import createSagaMidleware from "redux-saga";
 import rootSaga from './rootSaga';
 
@@ -6,7 +7,7 @@ import rootSaga from './rootSaga';
 const sagaMidleware = createSagaMidleware();
 
 const rootReducer = combineReducers({
-  
+  HomeReducer,
 });
 
 export const store = configureStore({

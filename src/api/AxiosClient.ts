@@ -1,11 +1,12 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 import __get from "lodash/get";
+import Constant from "util/Constants";
 
 const axiosClient = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://api.themoviedb.org/3/",
   headers: {
-    "Conttent-type": "application/json",
-  },
+    "Authorization": `Bearer ${Constant.ACCESS_TOKEN}`
+  }, 
 });
 
 // Add a request interceptor

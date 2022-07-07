@@ -1,4 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "app/store";
+import { ListRespone } from "model/common";
+import { MovieTrending } from "model/movie-trending";
 
 interface HomeState {
   bannerImage: string;
@@ -12,17 +15,29 @@ const HomeSlice = createSlice({
   name: "HomeSlice",
   initialState: initialHomeState,
   reducers: {
-    fetchData() {
-        
-    }
-  }
+    fetchData(state: HomeState) {
+      state.bannerImage = "";
+    },
+
+    fetchDataSuccess(
+      state: HomeState,
+      action: PayloadAction<ListRespone<MovieTrending>>
+    ) {
+      const { results } = action.payload;
+      console.log("Actionss", results);
+      //   const listMovieTrending: MovieTrending[] = action.payload.data
+      //   state.bannerImage = listMovieTrending[0].backdrop_path
+    },
+  },
 });
 
 // Action
-export const HomeAction = HomeSlice.actions
+export const HomeAction = HomeSlice.actions;
 
+// Selector
+export const bannerTrendingSelector = (state: RootState) => state.HomeReducer;
 
 // Reducer
-const HomeReducer = HomeSlice.reducer
+const HomeReducer = HomeSlice.reducer;
 
-export default HomeReducer
+export default HomeReducer;
