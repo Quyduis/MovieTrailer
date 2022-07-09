@@ -6,12 +6,12 @@ import { HomeAction } from "./home-slice";
 
 function* fetchDataSaga() {
   try {
-    const data: ListRespone<MovieTrending> = yield call(
+    const response: ListRespone<MovieTrending> = yield call(
       HomeApi.getListMovieTrending
     );
-     const { page } = data;
-     console.log("dataa", page);
-     console.log("dataa 222", data);
+     const { data } = response;
+     console.log("dataa", data);
+     console.log("dataa 222", response);
 
     yield put(HomeAction.fetchDataSuccess(data));
   } catch (_error: any) {}

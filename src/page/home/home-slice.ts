@@ -24,9 +24,11 @@ const HomeSlice = createSlice({
       action: PayloadAction<ListRespone<MovieTrending>>
     ) {
       const { results } = action.payload;
-      console.log("Actionss", results);
-      //   const listMovieTrending: MovieTrending[] = action.payload.data
-      //   state.bannerImage = listMovieTrending[0].backdrop_path
+      const listMovieTrending: MovieTrending[] = results;
+      const randomImage = Math.floor(
+        Math.random() * listMovieTrending.length
+      );
+      state.bannerImage = listMovieTrending[randomImage].backdrop_path;
     },
   },
 });
@@ -35,7 +37,8 @@ const HomeSlice = createSlice({
 export const HomeAction = HomeSlice.actions;
 
 // Selector
-export const bannerTrendingSelector = (state: RootState) => state.HomeReducer;
+export const bannerTrendingSelector = (state: RootState) =>
+  state.HomeReducer.bannerImage;
 
 // Reducer
 const HomeReducer = HomeSlice.reducer;

@@ -3,4 +3,5 @@ export interface TextProps {
     weight?: 'bold' | 'semi-bold'
     size?: 'tiny' | 'medium' | 'large' | string
     children: any
+    [key: string]: any
 }      

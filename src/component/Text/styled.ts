@@ -3,6 +3,7 @@ import { TextProps } from "./type";
 
 export const TextStyled = styled.p<TextProps>`
   color: ${(prop: TextProps) => prop.color || "black"};
+  line-height: 1;
   ${(prop: TextProps) => {
     switch (prop.weight) {
       case "bold":

@@ -7,10 +7,12 @@ const MainLayout = () => {
   return (
     <div>
       <Header />
-      <Routes>
-        <Route path="*" element={<HomePage />} />
-        <Route path="test" element={<LeaderBoardPage />} />
-      </Routes>
+      <div className="container px-16">
+        <Routes>
+          <Route path="*" element={<HomePage />} />
+          <Route path="test" element={<LeaderBoardPage />} />
+        </Routes>
+      </div>
     </div>
   );
 };
