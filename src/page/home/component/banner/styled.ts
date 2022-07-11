@@ -1,3 +1,4 @@
+import { Form, Input } from "antd";
 import styled from "styled-components";
 
 interface BannerProps {
@@ -11,10 +12,62 @@ export const BannerStyled = styled.div<BannerProps>`
       rgba(3, 37, 65, 0) 100%
     ),
     ${(props: BannerProps) => `url(${props.url})`};
-  min-height: 300px;
-  max-height: 360px;
+  min-height: 18.75rem;
+  max-height: 22.5rem;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const FormStyled = styled(Form)`
+  max-height: 50px;
+  position: relative;
+  & .ant-input {
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.5);
+    &:hover {
+      border-color: unset;
+      outline: none;
+    }
+
+    &:focus {
+      border-color: unset;
+      outline: none;
+    }
+  }
+
+  & .submit {
+    color: white;
+    font-weight: 700;
+    position: absolute;
+    cursor: pointer;
+    padding: 10px 20px;
+    width: 110px;
+    background: linear-gradient(
+      to right,
+      rgba(30, 213, 169, 1) 0%,
+      rgba(1, 180, 228, 1) 100%
+    );
+    top: 0;
+    right: -1px;
+
+    &:hover {
+      border-color: unset;
+      outline: none;
+    }
+
+    &:focus {
+      /* border-color: unset; */
+      outline: none;
+      border: none !important;
+      box-shadow: none;
+      margin: 0;
+    }
+  }
 `;
