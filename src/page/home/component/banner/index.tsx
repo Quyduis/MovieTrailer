@@ -2,19 +2,37 @@ import { BannerStyled, FormStyled } from "./styled";
 // import {Text} from 'src/'
 import { Text } from "component";
 import Constant from "util/Constants";
-import { Form, Input } from "antd";
+import { Form, Input, Modal } from "antd";
+import { ExclamationCircleOutlined } from "@ant-design/icons";
+import './test.scss'
 
 interface BannerProps {
   bannerMovieTrending?: string;
 }
 
 const Banner = ({ bannerMovieTrending }: BannerProps) => {
+  const { confirm } = Modal;
+  const showModalConfirm = () => {
+    confirm({
+      title: "Do you Want to delete these items?",
+      icon: <ExclamationCircleOutlined />,
+      content: "Some descriptions",
+      onOk() {
+        console.log("OK");
+      },
+      onCancel() {
+        console.log("Cancel");
+      },
+    });
+  };
+
   return (
     <BannerStyled
       url={`${Constant.IMAGE_PATH_ORIGINAL}${bannerMovieTrending}`}
       className="px-8 py-16"
     >
       <div>
+        <p id="quy">Quyyy</p>
         <Text style={{ fontSize: "3rem" }} color="white" weight="bold">
           Welcome.
         </Text>
@@ -28,11 +46,12 @@ const Banner = ({ bannerMovieTrending }: BannerProps) => {
         initialValues={{ remember: true }}
         //   onFinish={onFinish}
         autoComplete="off"
+        onFinish={showModalConfirm}
       >
         <Form.Item name="username">
-          <Input placeholder="Search for a movie, tv show, person......"/>
+          <Input placeholder="Search for a movie, tv show, person......" />
         </Form.Item>
-        <Input className="submit" type="submit" value={'Search'} />
+        <Input className="submit" type="submit" value={"Search"} />
       </FormStyled>
     </BannerStyled>
   );

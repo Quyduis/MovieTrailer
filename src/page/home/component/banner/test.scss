@@ -1,0 +1,24 @@
+#quy {
+  color: red;
+}
+
+div.ant-modal-content {
+  background-color: yellow;
+
+   .ant-modal-confirm-title {
+    color: blue;
+    text-align: end;
+
+    &:hover {
+        color: white;
+    }
+  }
+}
+
+// .ant-modal-body {
+//     background-color: blue;
+
+//     &.ant-modal-confirm-title {
+//         color: red;
+//     }
+// }
