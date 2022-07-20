@@ -5,10 +5,12 @@ import { MovieTrending } from "model/movie-trending";
 
 interface HomeState {
   bannerImage: string;
+  listMovieTrending: MovieTrending[];
 }
 
 const initialHomeState: HomeState = {
   bannerImage: "",
+  listMovieTrending: [],
 };
 
 const HomeSlice = createSlice({
@@ -25,10 +27,9 @@ const HomeSlice = createSlice({
     ) {
       const { results } = action.payload;
       const listMovieTrending: MovieTrending[] = results;
-      const randomImage = Math.floor(
-        Math.random() * listMovieTrending.length
-      );
+      const randomImage = Math.floor(Math.random() * listMovieTrending.length);
       state.bannerImage = listMovieTrending[randomImage].backdrop_path;
+      state.listMovieTrending = listMovieTrending;
     },
   },
 });
@@ -39,6 +40,8 @@ export const HomeAction = HomeSlice.actions;
 // Selector
 export const bannerTrendingSelector = (state: RootState) =>
   state.HomeReducer.bannerImage;
+export const listMovieTrendingSelector = (state: RootState) =>
+  state.HomeReducer.listMovieTrending;
 
 // Reducer
 const HomeReducer = HomeSlice.reducer;

@@ -31,14 +31,18 @@ export const FormStyled = styled(Form)`
     padding: 10px 20px;
     font-size: 1.1rem;
     color: rgba(0, 0, 0, 0.5);
+    /* background-color: black; */
     &:hover {
       border-color: unset;
       outline: none;
+      /* background-color: red; */
     }
 
     &:focus {
       border-color: unset;
       outline: none;
+      box-shadow: none;
+      /* background-color: blue; */
     }
   }
 
@@ -68,6 +72,7 @@ export const FormStyled = styled(Form)`
       border: none !important;
       box-shadow: none;
       margin: 0;
+      height: 100%;
     }
   }
 `;
