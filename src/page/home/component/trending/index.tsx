@@ -1,7 +1,12 @@
-import { Text } from "component";
-import TrendingItem from "./trending-item";
+import { MovieListItem, Text } from "component";
+import { MovieTrending } from "model/movie-trending";
+import { HorzontalList } from "./styled";
 
-const Trendings = () => {
+interface Props {
+  listMovieTrending: MovieTrending[];
+}
+
+const Trendings = ({ listMovieTrending }: Props) => {
   return (
     <div className="pb-8">
       {/* Trending header */}
@@ -12,7 +17,12 @@ const Trendings = () => {
       </div>
 
       {/* Trendinf Item */}
-      <TrendingItem />
+      <HorzontalList>
+        {Array.isArray(listMovieTrending) &&
+          listMovieTrending?.map((item: MovieTrending, index: number) => {
+            return <MovieListItem key={index} movieItem={item} />;
+          })}
+      </HorzontalList>
     </div>
   );
 };

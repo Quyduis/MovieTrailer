@@ -2,6 +2,10 @@ import { Card } from "antd";
 import styled from "styled-components";
 import Constant from "util/Constants";
 
+interface ImagePosterProps {
+  imagePath: string;
+}
+
 export const CardStyled = styled(Card)`
   min-width: 150px;
   width: 150px;
@@ -18,9 +22,10 @@ export const ImageWrapper = styled.div`
   margin-bottom: 24px;
 `;
 
-export const ImagePoster = styled.img`
+export const ImagePoster = styled.img<ImagePosterProps>`
   border-radius: ${Constant.STYLED.BORDER_RADIUS_POSTER};
-  content: url("https://www.themoviedb.org/t/p/w220_and_h330_face/cjb9NXJvisfh5fmgX9rerxZfFrJ.jpg");
+  content: ${(props: ImagePosterProps) =>
+    `url(https://www.themoviedb.org/t/p/w220_and_h330_face/${props.imagePath})`};
   width: 100%;
   height: 100%;
 `;
@@ -36,14 +41,3 @@ export const ImageMore = styled.img`
   top: 4px;
   right: 4px;
 `;
-
-export const HorzontalList = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  overflow-x: auto;
-  gap: 24px;
-  padding-left: 32px;
-  padding-right: 32px;
-  padding-bottom: 32px;
-`
