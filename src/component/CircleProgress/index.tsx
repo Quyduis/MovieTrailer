@@ -31,7 +31,6 @@ const CircleProgress = ({score}: Props) => {
       canvasContext!.scale(dpr, dpr);
       /** NOTE(QUY-PHAM): End optimize canvas display: */
 
-      canvasContext!.imageSmoothingEnabled = false;
       canvasContext!.beginPath();
       // Circle progress background
       canvasContext!.arc(17, 17, 17, 0, Math.PI * 2);

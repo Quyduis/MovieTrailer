@@ -1,12 +1,19 @@
 import { MovieListItem, Text } from "component";
 import { MovieTrending } from "model/movie-trending";
-import { HorzontalList } from "./styled";
+import { useState } from "react";
+import { HorzontalList, Switch, SwitchWrapper } from "./styled";
 
 interface Props {
   listMovieTrending: MovieTrending[];
 }
 
 const Trendings = ({ listMovieTrending }: Props) => {
+  const [type, setType] = useState("to-day");
+
+  const handleClick = () => {
+    setType(type === "to-week" ? "to-day" : "to-week");
+  };
+
   return (
     <div className="pb-8">
       {/* Trending header */}
@@ -14,6 +21,10 @@ const Trendings = ({ listMovieTrending }: Props) => {
         <Text size="large" weight="bold">
           Trending
         </Text>
+
+        <SwitchWrapper>
+          <Switch onClick={handleClick} className={type} />
+        </SwitchWrapper>
       </div>
 
       {/* Trendinf Item */}

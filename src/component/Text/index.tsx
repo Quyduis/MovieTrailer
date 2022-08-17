@@ -5,7 +5,7 @@ import { TextProps } from "./type"
 
 const Text = ({...props}: TextProps) => {
     return (
-        <TextStyled {...props}/>
+            <TextStyled {...props}/>
     )
 }
 

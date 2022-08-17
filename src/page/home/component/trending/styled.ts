@@ -46,4 +46,33 @@ export const HorzontalList = styled.div`
   padding-left: 32px;
   padding-right: 32px;
   padding-bottom: 32px;
-`
+`;
+
+/** CSS Switch */
+
+export const SwitchWrapper = styled.div`
+  border: 1.5px solid ${Constant.MAIN_COLOR};
+  border-radius: 20px;
+  max-width: 200px;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+`;
+
+export const Switch= styled.div`
+  border-radius: 20px;
+  width: 100px;
+  transition: left 3s ease-in-out, right 3s ease-in-out;
+  background-color: ${Constant.MAIN_COLOR};
+  position: absolute;
+  height: 100%;
+  &.to-week{
+    right: 0;
+  }
+
+  &.to-day{
+    left: 0;
+  }
+`;
