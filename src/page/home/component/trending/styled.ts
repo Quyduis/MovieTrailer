@@ -59,15 +59,17 @@ export const SwitchWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   position: relative;
+  cursor: pointer;
 `;
 
 export const Switch= styled.div`
   border-radius: 20px;
   width: 100px;
-  transition: left 3s ease-in-out, right 3s ease-in-out;
+  transition: all 3s ease-in-out;
   background-color: ${Constant.MAIN_COLOR};
   position: absolute;
   height: 100%;
+  cursor: pointer;
   &.to-week{
     right: 0;
   }

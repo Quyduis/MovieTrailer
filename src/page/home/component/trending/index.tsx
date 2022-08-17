@@ -22,8 +22,8 @@ const Trendings = ({ listMovieTrending }: Props) => {
           Trending
         </Text>
 
-        <SwitchWrapper>
-          <Switch onClick={handleClick} className={type} />
+        <SwitchWrapper onClick={handleClick}>
+          <Switch className={type} />
         </SwitchWrapper>
       </div>
 
