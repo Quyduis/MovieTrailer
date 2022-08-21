@@ -1,18 +1,18 @@
 import { MovieListItem, Text } from "component";
+import SwitchButton from "component/SwitchButton";
 import { MovieTrending } from "model/movie-trending";
 import { useState } from "react";
-import { HorzontalList, Switch, SwitchWrapper, ToggleLabel } from "./styled";
+import { HorzontalList } from "./styled";
 
 interface Props {
   listMovieTrending: MovieTrending[];
 }
 
 const Trendings = ({ listMovieTrending }: Props) => {
-  const [type, setType] = useState("toggle-left");
 
-  const handleClick = () => {
-    setType(type === "toggle-left" ? "toggle-right" : "toggle-left");
-  };
+  const handleToggleButton = (data: string) => {
+
+  }
 
   return (
     <div className="pb-8">
@@ -21,20 +21,8 @@ const Trendings = ({ listMovieTrending }: Props) => {
         <Text size="large" weight="bold">
           Trending
         </Text>
-
-        <SwitchWrapper onClick={handleClick}>
-          <ToggleLabel
-            className={type === "toggle-left" ? "high-light" : "normal"}
-          >
-            Left
-          </ToggleLabel>
-          <Switch className={type} />
-          <ToggleLabel
-            className={type === "toggle-right" ? "high-light" : "normal"}
-          >
-            Right
-          </ToggleLabel>
-        </SwitchWrapper>
+      {/* Switch button trending */}
+       <SwitchButton leftLabel="Today" rightLabel="This Week" onToggle={handleToggleButton}/>
       </div>
 
       {/* Trendinf Item */}

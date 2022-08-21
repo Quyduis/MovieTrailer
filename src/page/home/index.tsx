@@ -7,11 +7,17 @@ import {
   HomeAction,
   listMovieTrendingSelector,
 } from "./home-slice";
+import { useHome } from "./hook/useHome";
 
 const HomePage = () => {
   const dispatch = useAppDispatch();
   const bannerMovieTrending = useAppSelector(bannerTrendingSelector);
   const listMovieTrending = useAppSelector(listMovieTrendingSelector);
+
+  const {data} = useHome()
+
+  console.log('dataa', data);
+  
 
   useEffect(() => {
     dispatch(HomeAction.fetchData());
