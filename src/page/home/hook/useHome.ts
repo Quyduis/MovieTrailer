@@ -3,13 +3,20 @@ import { useQuery } from "@tanstack/react-query";
 import HomeApi from "api/HomeApi";
 
 export const useHome = () => {
+  const [enable, setEnable] = useState(false);
   const { data } = useQuery(
     ["home-data", "trending"],
     HomeApi.getListMovieTrending,
     {
-        refetchOnWindowFocus: false
+      refetchOnWindowFocus: false,
+    //   staleTime: 10000,
+      enabled: enable === true,
     }
   );
 
-  return { data };
+  const test = () => {
+    setEnable(!enable);
+  };
+
+  return { data, test };
 };

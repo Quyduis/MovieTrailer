@@ -6,12 +6,13 @@ import { HorzontalList } from "./styled";
 
 interface Props {
   listMovieTrending: MovieTrending[];
+  onClickToggle: () => void
 }
 
-const Trendings = ({ listMovieTrending }: Props) => {
+const Trendings = ({ listMovieTrending, onClickToggle }: Props) => {
 
   const handleToggleButton = (data: string) => {
-
+    onClickToggle()
   }
 
   return (

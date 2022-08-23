@@ -14,7 +14,7 @@ const HomePage = () => {
   const bannerMovieTrending = useAppSelector(bannerTrendingSelector);
   const listMovieTrending = useAppSelector(listMovieTrendingSelector);
 
-  const {data} = useHome()
+  const {data, test} = useHome()
 
   console.log('dataa', data);
   
@@ -29,7 +29,7 @@ const HomePage = () => {
   return (
     <div>
       <Banner bannerMovieTrending={bannerMovieTrending} />
-      <Trendings listMovieTrending={listMovieTrending} />
+      <Trendings listMovieTrending={listMovieTrending} onClickToggle={test}/>
     </div>
   );
 };
