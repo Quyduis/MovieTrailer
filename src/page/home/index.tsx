@@ -12,16 +12,16 @@ import { useHome } from "./hook/useHome";
 const HomePage = () => {
   const dispatch = useAppDispatch();
   const bannerMovieTrending = useAppSelector(bannerTrendingSelector);
-  const listMovieTrending = useAppSelector(listMovieTrendingSelector);
+  // const listMovieTrending = useAppSelector(listMovieTrendingSelector);
 
-  const {data, test} = useHome()
+  const {listMovieTrending, test} = useHome()
 
-  console.log('dataa', data);
+  console.log('dataa', listMovieTrending);
   
 
-  useEffect(() => {
-    dispatch(HomeAction.fetchData());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(HomeAction.fetchData());
+  // }, [dispatch]);
 
   useEffect(() => {
     console.log("listMovieTrending", listMovieTrending);
