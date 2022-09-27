@@ -1,12 +1,12 @@
 import HomeApi from "api/HomeApi";
 import { ListRespone } from "model/common";
-import { MovieTrending } from "model/movie-trending";
+import { Movie } from "model/movie";
 import { call, put, takeLatest } from "redux-saga/effects";
 import { HomeAction } from "./home-slice";
 
 function* fetchDataSaga() {
   try {
-    const response: ListRespone<MovieTrending> = yield call(
+    const response: ListRespone<Movie> = yield call(
       HomeApi.getListMovieTrending
     );
      const { data } = response;

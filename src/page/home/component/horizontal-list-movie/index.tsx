@@ -1,17 +1,17 @@
 import { MovieListItem, Text } from "component";
 import SwitchButton from "component/SwitchButton";
-import { MovieTrending } from "model/movie-trending";
+import { Movie } from "model/movie";
 import { ReactNode, useState } from "react";
 import { HorzontalList } from "./styled";
 
 interface Props {
-  listMovieTrending: MovieTrending[];
+  title: string;
   onClickToggle: () => void;
   listItem: ReactNode;
 }
 
 const HorizontalListMovie = ({
-  listMovieTrending,
+  title,
   onClickToggle,
   listItem,
 }: Props) => {
@@ -24,7 +24,7 @@ const HorizontalListMovie = ({
       {/* Header */}
       <div className="m-8 flex flex-row items-center gap-8">
         <Text size="large" weight="bold">
-          Trending
+          {title}
         </Text>
         {/* Switch button */}
         <SwitchButton

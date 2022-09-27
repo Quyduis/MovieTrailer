@@ -1,11 +1,11 @@
 import { CircleProgress, Text } from "component";
-import { MovieTrending } from "model/movie-trending";
+import { Movie } from "model/movie";
 import { useMemo } from "react";
 import Constant from "util/Constants";
 import { CardStyled, ImageMore, ImagePoster, ImageWrapper } from "./styled";
 
 interface Props {
-  movieItem: MovieTrending;
+  movieItem: Movie;
 }
 
 const MovieListItem = ({ movieItem }: Props) => {

@@ -1,5 +1,5 @@
 import { MovieListItem } from "component";
-import { MovieTrending } from "model/movie-trending";
+import { Movie } from "model/movie";
 import { runMain } from "module";
 import Banner from "./component/banner";
 import HorizontalListMovie from "./component/horizontal-list-movie";
@@ -20,16 +20,26 @@ const HomePage = () => {
    * *******************REDUX-TOOlKIT*******************
    */
 
-  const { listMovieTrending, getBannerMovieTrending } = UseHome();
+  const { listMovieTrending, getBannerMovieTrending, listMoviePopular } =
+    UseHome();
 
   /**
-   * Render list movie trending
+   * Render movie trending Item
    * @returns React Node
    */
-  const renderTrendingitem = () => {
+  const renderTrendingItem = () => {
     return (
       Array.isArray(listMovieTrending) &&
-      listMovieTrending?.map((item: MovieTrending, index: number) => {
+      listMovieTrending?.map((item: Movie, index: number) => {
+        return <MovieListItem key={index} movieItem={item} />;
+      })
+    );
+  };
+
+  const renderPopularItem = () => {
+    return (
+      Array.isArray(listMoviePopular) &&
+      listMoviePopular?.map((item: Movie, index: number) => {
         return <MovieListItem key={index} movieItem={item} />;
       })
     );
@@ -39,10 +49,18 @@ const HomePage = () => {
     <div>
       {/* Banner Image and Search */}
       <Banner bannerMovieTrending={getBannerMovieTrending()} />
+
+      {/* List movie popular */}
+      <HorizontalListMovie
+        title="What's Popular"
+        listItem={renderPopularItem()}
+        onClickToggle={() => {}}
+      />
+
       {/* List movie trending */}
       <HorizontalListMovie
-        listItem={renderTrendingitem()}
-        listMovieTrending={listMovieTrending}
+        title="Trending"
+        listItem={renderTrendingItem()}
         onClickToggle={() => {}}
       />
     </div>

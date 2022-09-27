@@ -12,6 +12,7 @@ interface IConstants {
   QUERY_KEY: {
     HOME: {
       TRENDING_TODAY: string[];
+      MOVIE_POPULAR: string[];
     };
   };
 }
@@ -31,6 +32,7 @@ const Constant: IConstants = {
   QUERY_KEY: {
     HOME: {
       TRENDING_TODAY: ["HOME", "TRENDING-TODAY"],
+      MOVIE_POPULAR: ["HOME", "MOVIE-POPULAR"]
     },
   },
 };

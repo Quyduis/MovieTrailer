@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "app/store";
 import { ListRespone } from "model/common";
-import { MovieTrending } from "model/movie-trending";
+import { Movie } from "model/movie";
 
 interface HomeState {
   bannerImage: string;
-  listMovieTrending: MovieTrending[];
+  listMovieTrending: Movie[];
 }
 
 const initialHomeState: HomeState = {
@@ -23,10 +23,10 @@ const HomeSlice = createSlice({
 
     fetchDataSuccess(
       state: HomeState,
-      action: PayloadAction<ListRespone<MovieTrending>>
+      action: PayloadAction<ListRespone<Movie>>
     ) {
       const { results } = action.payload;
-      const listMovieTrending: MovieTrending[] = results;
+      const listMovieTrending: Movie[] = results;
       const randomImage = Math.floor(Math.random() * listMovieTrending.length);
       state.bannerImage = listMovieTrending[randomImage].backdrop_path;
       state.listMovieTrending = listMovieTrending;
