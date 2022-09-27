@@ -9,6 +9,11 @@ interface IConstants {
     BORDER_RADIUS_POSTER: string;
     COLOR_GRAY: string;
   };
+  QUERY_KEY: {
+    HOME: {
+      TRENDING_TODAY: string[];
+    };
+  };
 }
 
 const Constant: IConstants = {
@@ -21,7 +26,12 @@ const Constant: IConstants = {
   IMAGE_PATH_W220: "https://www.themoviedb.org/t/p/w220_and_h330_face",
   STYLED: {
     BORDER_RADIUS_POSTER: "8px",
-    COLOR_GRAY: "rgba(0,0,0,0.6)"
+    COLOR_GRAY: "rgba(0,0,0,0.6)",
+  },
+  QUERY_KEY: {
+    HOME: {
+      TRENDING_TODAY: ["HOME", "TRENDING-TODAY"],
+    },
   },
 };
 

@@ -23,7 +23,12 @@ axiosClient.interceptors.request.use(
 
 // Add a response interceptor
 axiosClient.interceptors.response.use(
-  (response: any) => response,
+  (response: any) => {
+    return {
+      responseData: response?.data,
+      ...response
+    }
+  },
   (error: any) => {
     const { response = {} } = error;
 

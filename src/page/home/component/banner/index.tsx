@@ -23,7 +23,7 @@ const Banner = ({ bannerMovieTrending }: BannerProps) => {
     //     console.log("Cancel");
     //   },
     // });
-    console.log("+++", values);
+    console.log("+++ bannerr", bannerMovieTrending);
   };
 
   return (

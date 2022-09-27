@@ -1,35 +1,50 @@
-import { useAppDispatch, useAppSelector } from "app/hooks";
-import { useEffect } from "react";
+import { MovieListItem } from "component";
+import { MovieTrending } from "model/movie-trending";
+import { runMain } from "module";
 import Banner from "./component/banner";
-import Trendings from "./component/trending";
-import {
-  bannerTrendingSelector,
-  HomeAction,
-  listMovieTrendingSelector,
-} from "./home-slice";
-import { useHome } from "./hook/useHome";
+import HorizontalListMovie from "./component/horizontal-list-movie";
+import UseHome from "./hook/useHome";
 
 const HomePage = () => {
-  const dispatch = useAppDispatch();
-  const bannerMovieTrending = useAppSelector(bannerTrendingSelector);
+  /**
+   * *******************REDUX-TOOlKIT*******************
+   */
+  // const dispatch = useAppDispatch();
+  // const bannerMovieTrending = useAppSelector(bannerTrendingSelector);
   // const listMovieTrending = useAppSelector(listMovieTrendingSelector);
-
-  const {listMovieTrending, test} = useHome()
-
-  console.log('dataa', listMovieTrending);
-  
 
   // useEffect(() => {
   //   dispatch(HomeAction.fetchData());
   // }, [dispatch]);
+  /**
+   * *******************REDUX-TOOlKIT*******************
+   */
 
-  useEffect(() => {
-    console.log("listMovieTrending", listMovieTrending);
-  }, [listMovieTrending]);
+  const { listMovieTrending, getBannerMovieTrending } = UseHome();
+
+  /**
+   * Render list movie trending
+   * @returns React Node
+   */
+  const renderTrendingitem = () => {
+    return (
+      Array.isArray(listMovieTrending) &&
+      listMovieTrending?.map((item: MovieTrending, index: number) => {
+        return <MovieListItem key={index} movieItem={item} />;
+      })
+    );
+  };
+
   return (
     <div>
-      <Banner bannerMovieTrending={bannerMovieTrending} />
-      <Trendings listMovieTrending={listMovieTrending} onClickToggle={test}/>
+      {/* Banner Image and Search */}
+      <Banner bannerMovieTrending={getBannerMovieTrending()} />
+      {/* List movie trending */}
+      <HorizontalListMovie
+        listItem={renderTrendingitem()}
+        listMovieTrending={listMovieTrending}
+        onClickToggle={() => {}}
+      />
     </div>
   );
 };
