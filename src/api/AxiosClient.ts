@@ -5,8 +5,9 @@ import Constant from "util/Constants";
 const axiosClient = axios.create({
   baseURL: "https://api.themoviedb.org/3/",
   headers: {
-    "Authorization": `Bearer ${Constant.ACCESS_TOKEN}`
-  }, 
+    Authorization: `Bearer ${Constant.ACCESS_TOKEN}`,
+  },
+  timeout: 300000,
 });
 
 // Add a request interceptor
@@ -18,14 +19,14 @@ axiosClient.interceptors.request.use(
   (error: any) => {
     // Do something with request error
     return Promise.reject(error);
-  },
+  }
 );
 
 // Add a response interceptor
 axiosClient.interceptors.response.use(
   (response: any) => {
-    console.log('+++ response', response);
-    
+    console.log("+++ response", response);
+
     // return {
     //   responseData: response?.data,
     //   ...response
@@ -33,16 +34,16 @@ axiosClient.interceptors.response.use(
 
     return {
       ...response?.data,
-      status: response?.data?.status
-    }
+      status: response?.data?.status,
+    };
   },
   (error: any) => {
     const { response = {} } = error;
 
     if (response.status === 401) {
       // Remove Token
-    //   localStorage.removeItem(Constants.ACCESS_TOKEN);
-    //   window.location.href = "/login";
+      //   localStorage.removeItem(Constants.ACCESS_TOKEN);
+      //   window.location.href = "/login";
     } else if (response.status === 403) {
       // TODO
     } else if (response.status === 500) {
@@ -50,7 +51,7 @@ axiosClient.interceptors.response.use(
     } else {
       return error.response || error.request || error.message;
     }
-  },
+  }
 );
 
 export const axiosHandler = (service: any) => {
