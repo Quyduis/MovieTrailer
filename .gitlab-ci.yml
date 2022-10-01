@@ -19,8 +19,5 @@ test-job2:
 deploy-prod:
   stage: deploy
   script:
-    - git push https://$HEROKU_USER:$HEROKU_API_KEY@git.heroku.com/movie-trailer-demo.git HEAD:master
     - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
-  environment:
-   name: production
-   url: https://movie-trailer-demo.herokuapp.com/
+  environment: production
