@@ -50,7 +50,7 @@ const HomePage = () => {
       {/* Banner Image and Search */}
       <Banner bannerMovieTrending={getBannerMovieTrending()} />
 
-      {/* List movie popular */}
+      {/* List movie popular */} 
       <HorizontalListMovie
         title="What's Popular"
         listItem={renderPopularItem()}
