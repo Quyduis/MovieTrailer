@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "../../page/home";
 import LeaderBoardPage from "../../page/leader-board";
+import Footer from "./footer";
 import Header from "./header";
 
 const MainLayout = () => {
@@ -13,6 +14,7 @@ const MainLayout = () => {
           <Route path="test" element={<LeaderBoardPage />} />
         </Routes>
       </div>
+      <Footer />
     </div>
   );
 };

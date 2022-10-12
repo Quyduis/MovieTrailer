@@ -15,6 +15,7 @@ interface IConstants {
       MOVIE_POPULAR: string[];
     };
   };
+  DATE_FORMAT: string;
 }
 
 const Constant: IConstants = {
@@ -32,9 +33,10 @@ const Constant: IConstants = {
   QUERY_KEY: {
     HOME: {
       TRENDING_TODAY: ["HOME", "TRENDING-TODAY"],
-      MOVIE_POPULAR: ["HOME", "MOVIE-POPULAR"]
+      MOVIE_POPULAR: ["HOME", "MOVIE-POPULAR"],
     },
   },
+  DATE_FORMAT: 'MMM DD, YYYY',
 };
 
 export default Constant;

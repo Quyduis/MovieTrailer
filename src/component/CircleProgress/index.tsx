@@ -45,7 +45,11 @@ const CircleProgress = ({score}: Props) => {
       canvasContext!.lineWidth = 2;
       canvasContext!.stroke();
 
-      // Circle actual percent
+      /**
+       * Convert percent unit to radian unit
+       * @param percent 
+       * @returns 
+       */
       const converPercentToRadians = (percent: number) => {
         const percentToDegree = (percent / 100) * 360;
         const radians = (Math.PI / 180) * percentToDegree;
@@ -53,6 +57,7 @@ const CircleProgress = ({score}: Props) => {
         return radians;
       };
 
+      // Circle actual percent
       canvasContext!.beginPath();
       canvasContext!.arc(
         17,

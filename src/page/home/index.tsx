@@ -36,6 +36,10 @@ const HomePage = () => {
     );
   };
 
+  /**
+   * Render movie popular item
+   * @returns React Node
+   */
   const renderPopularItem = () => {
     return (
       Array.isArray(listMoviePopular) &&

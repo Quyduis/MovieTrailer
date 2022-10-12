@@ -5,6 +5,7 @@ export const TextStyled = styled.p<TextProps>`
   color: ${(prop: TextProps) => prop.color || "black"};
   line-height: 1.5;
   word-break: break-word;
+  cursor: pointer;
   ${(prop: TextProps) => {
     switch (prop.weight) {
       case "bold":
