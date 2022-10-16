@@ -5,6 +5,8 @@ interface IConstants {
   IMAGE_PATH_ORIGINAL: string;
   IMAGE_PATH_W500: string;
   IMAGE_PATH_W220: string;
+  IMAGE_PATH_W1920_H427: string;
+  IMAGE_PATH_W710_H400: string;
   STYLED: {
     BORDER_RADIUS_POSTER: string;
     COLOR_GRAY: string;
@@ -13,6 +15,7 @@ interface IConstants {
     HOME: {
       TRENDING_TODAY: string[];
       MOVIE_POPULAR: string[];
+      MOVIE_TOP_RATED: string[];
     };
   };
   DATE_FORMAT: string;
@@ -26,6 +29,10 @@ const Constant: IConstants = {
   IMAGE_PATH_ORIGINAL: "https://image.tmdb.org/t/p/original",
   IMAGE_PATH_W500: "https://image.tmdb.org/t/p/w500",
   IMAGE_PATH_W220: "https://www.themoviedb.org/t/p/w220_and_h330_face",
+  IMAGE_PATH_W1920_H427:
+    "https://www.themoviedb.org/t/p/w1920_and_h427_multi_faces",
+  IMAGE_PATH_W710_H400:
+    "https://www.themoviedb.org/t/p/w710_and_h400_multi_faces",
   STYLED: {
     BORDER_RADIUS_POSTER: "8px",
     COLOR_GRAY: "rgba(0,0,0,0.6)",
@@ -34,9 +41,10 @@ const Constant: IConstants = {
     HOME: {
       TRENDING_TODAY: ["HOME", "TRENDING-TODAY"],
       MOVIE_POPULAR: ["HOME", "MOVIE-POPULAR"],
+      MOVIE_TOP_RATED: ["HOME", "MOVIE-TOP_RATED"],
     },
   },
-  DATE_FORMAT: 'MMM DD, YYYY',
+  DATE_FORMAT: "MMM DD, YYYY",
 };
 
 export default Constant;

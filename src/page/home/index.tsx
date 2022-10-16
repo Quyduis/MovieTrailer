@@ -1,6 +1,5 @@
-import { MovieListItem } from "component";
+import { MovieListItemTypeA } from "component";
 import { Movie } from "model/movie";
-import { runMain } from "module";
 import Banner from "./component/banner";
 import HorizontalListMovie from "./component/horizontal-list-movie";
 import UseHome from "./hook/useHome";
@@ -20,8 +19,12 @@ const HomePage = () => {
    * *******************REDUX-TOOlKIT*******************
    */
 
-  const { listMovieTrending, getBannerMovieTrending, listMoviePopular } =
-    UseHome();
+  const {
+    listMovieTrending,
+    getBannerMovieTrending,
+    listMoviePopular,
+    listMovieToprated,
+  } = UseHome();
 
   /**
    * Render movie trending Item
@@ -30,8 +33,8 @@ const HomePage = () => {
   const renderTrendingItem = () => {
     return (
       Array.isArray(listMovieTrending) &&
-      listMovieTrending?.map((item: Movie, index: number) => {
-        return <MovieListItem key={index} movieItem={item} />;
+      listMovieTrending?.map((item: Movie) => {
+        return <MovieListItemTypeA key={item.id} movieItem={item} />;
       })
     );
   };
@@ -43,8 +46,21 @@ const HomePage = () => {
   const renderPopularItem = () => {
     return (
       Array.isArray(listMoviePopular) &&
-      listMoviePopular?.map((item: Movie, index: number) => {
-        return <MovieListItem key={index} movieItem={item} />;
+      listMoviePopular?.map((item: Movie) => {
+        return <MovieListItemTypeA key={item.id} movieItem={item} />;
+      })
+    );
+  };
+
+  /**
+   * Render movie top rated item
+   * @returns React Node
+   */
+  const renderTopRatedItem = () => {
+    return (
+      Array.isArray(listMovieToprated) &&
+      listMovieToprated?.map((item: Movie) => {
+        return <MovieListItemTypeA key={item.id} movieItem={item} />;
       })
     );
   };
@@ -54,10 +70,17 @@ const HomePage = () => {
       {/* Banner Image and Search */}
       <Banner bannerMovieTrending={getBannerMovieTrending()} />
 
-      {/* List movie popular */} 
+      {/* List movie popular */}
       <HorizontalListMovie
         title="What's Popular"
         listItem={renderPopularItem()}
+        onClickToggle={() => {}}
+      />
+
+      {/* List movie top rated */}
+      <HorizontalListMovie
+        title="Top Rated"
+        listItem={renderTopRatedItem()}
         onClickToggle={() => {}}
       />
 

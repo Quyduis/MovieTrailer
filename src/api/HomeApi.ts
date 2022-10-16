@@ -8,7 +8,7 @@ const HomeApi = {
    * @returns 
    */
   getListMovieTrending(): Promise<ListRespone<Movie>> {
-    return axiosClient.get("trending/movie/week");
+    return axiosClient.get("/trending/movie/week");
   },
 
   /**
@@ -17,6 +17,14 @@ const HomeApi = {
    */
   getListMoviePopuplar(): Promise<ListRespone<Movie>> {
     return axiosClient.get("/movie/popular")
+  },
+
+  /**
+   * GET list movie top rated
+   * @returns 
+   */
+  getListMovieTopRated(): Promise<ListRespone<Movie>> {
+    return axiosClient.get("/movie/top_rated")
   }
 };
 

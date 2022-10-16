@@ -1,4 +1,4 @@
-import { MovieListItem, Text } from "component";
+import { MovieListItemTypeA, Text } from "component";
 import SwitchButton from "component/SwitchButton";
 import { Movie } from "model/movie";
 import { ReactNode, useState } from "react";
@@ -8,12 +8,14 @@ interface Props {
   title: string;
   onClickToggle: () => void;
   listItem: ReactNode;
+  backgroundUrl?: string;
 }
 
 const HorizontalListMovie = ({
   title,
   onClickToggle,
   listItem,
+  backgroundUrl,
 }: Props) => {
   const handleToggleButton = (data: string) => {
     onClickToggle();
@@ -35,7 +37,7 @@ const HorizontalListMovie = ({
       </div>
 
       {/* Movie Item */}
-      <HorzontalList>{listItem}</HorzontalList>
+      <HorzontalList backgroundUrl={backgroundUrl}>{listItem}</HorzontalList>
     </div>
   );
 };

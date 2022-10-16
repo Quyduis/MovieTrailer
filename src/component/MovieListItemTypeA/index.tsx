@@ -9,7 +9,7 @@ interface Props {
   movieItem: Movie;
 }
 
-const MovieListItem = ({ movieItem }: Props) => {
+const MovieListItemTypeA = ({ movieItem }: Props) => {
   const score: number = useMemo(() => {
     if (movieItem.vote_average) {
       return Math.ceil(movieItem.vote_average * 10);
@@ -48,4 +48,4 @@ const MovieListItem = ({ movieItem }: Props) => {
   );
 };
 
-export default MovieListItem;
+export default MovieListItemTypeA;

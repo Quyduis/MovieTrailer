@@ -1,7 +1,8 @@
 import { Card } from "antd";
 
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Constant from "util/Constants";
+import { HorizontalListProps } from "./type";
 
 export const CardStyled = styled(Card)`
   min-width: 150px;
@@ -38,7 +39,7 @@ export const ImageMore = styled.img`
   right: 4px;
 `;
 
-export const HorzontalList = styled.div`
+export const HorzontalList = styled.div<HorizontalListProps>`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -47,5 +48,15 @@ export const HorzontalList = styled.div`
   padding-left: 32px;
   padding-right: 32px;
   padding-bottom: 32px;
-`;
 
+  ${(prop) => {
+    if (prop.backgroundUrl) {
+      return css`
+        padding: 2rem;
+        background-image: url("https://www.themoviedb.org/t/p/w1920_and_h427_multi_faces/pysGisnLhmjQB2CGQCAQDxBADsH.jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      `;
+    }
+  }}
+`;

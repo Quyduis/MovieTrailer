@@ -11,20 +11,38 @@ import Constant from "util/Constants";
 const useMovieTrendingQuery = (queryKey: string[]) =>
   useQuery(queryKey, HomeApi.getListMovieTrending);
 
+/**
+ * Query get list movie popular
+ * @param queryKey
+ * @returns Query
+ */
 const useMoviePopularQuery = (queryKey: string[]) =>
   useQuery(queryKey, HomeApi.getListMoviePopuplar);
+
+/**
+ * Query get list movie top rated
+ * @param queryKey
+ * @returns
+ */
+const useMovieTopratedQuery = (queryKey: string[]) =>
+  useQuery(queryKey, HomeApi.getListMovieTopRated);
 
 export const UseHome = () => {
   // Call function query list movie trending week
   const movieTrendingResponse = useMovieTrendingQuery(
     Constant.QUERY_KEY.HOME.TRENDING_TODAY
   );
-  
+
   // Call function query list movie popular
   const moviePopularResponse = useMoviePopularQuery(
     Constant.QUERY_KEY.HOME.MOVIE_POPULAR
   );
-  
+
+  // Call function query list movie top rated
+  const movieTopRatedResponse = useMovieTopratedQuery(
+    Constant.QUERY_KEY.HOME.MOVIE_TOP_RATED
+  );
+
   /**
    * Get Image banner
    * @returns url banner image
@@ -46,6 +64,7 @@ export const UseHome = () => {
   return {
     listMovieTrending: movieTrendingResponse?.data?.results || [],
     listMoviePopular: moviePopularResponse?.data?.results || [],
+    listMovieToprated: movieTopRatedResponse?.data?.results || [],
     getBannerMovieTrending,
   };
 };

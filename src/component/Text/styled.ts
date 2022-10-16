@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { TextProps } from "./type";
 
 export const TextStyled = styled.p<TextProps>`
-  color: ${(prop: TextProps) => prop.color || "black"};
+  color: ${(prop) => prop.color || "black"};
   line-height: 1.5;
   word-break: break-word;
   cursor: pointer;
@@ -22,7 +22,7 @@ export const TextStyled = styled.p<TextProps>`
         `;
     }
   }};
-  ${(prop: TextProps) => {
+  ${(prop) => {
     switch (prop.size) {
       case "large":
         return css`
