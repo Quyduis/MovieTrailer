@@ -1,8 +1,28 @@
 import { Card } from "antd";
 
-import styled, { css } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import Constant from "util/Constants";
 import { HorizontalListProps } from "./type";
+
+export const Container = styled.div<HorizontalListProps>`
+  ${(props) => {
+    if (props.backgroundUrl) {
+      return css`
+        padding: 0.5rem 0;
+        transition: all 2s ease-out;
+        background-image: linear-gradient(
+            to right,
+            rgba(3, 37, 65, 0.8) 0%,
+            rgba(3, 37, 65, 0) 100%
+          ),
+          ${(props: HorizontalListProps) => `url(${props.backgroundUrl})`};
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      `;
+    }
+  }}
+`;
 
 export const CardStyled = styled(Card)`
   min-width: 150px;
@@ -39,7 +59,7 @@ export const ImageMore = styled.img`
   right: 4px;
 `;
 
-export const HorzontalList = styled.div<HorizontalListProps>`
+export const HorzontalList = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -48,15 +68,5 @@ export const HorzontalList = styled.div<HorizontalListProps>`
   padding-left: 32px;
   padding-right: 32px;
   padding-bottom: 32px;
-
-  ${(prop) => {
-    if (prop.backgroundUrl) {
-      return css`
-        padding: 2rem;
-        background-image: url("https://www.themoviedb.org/t/p/w1920_and_h427_multi_faces/pysGisnLhmjQB2CGQCAQDxBADsH.jpg");
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-      `;
-    }
-  }}
+  padding-top: 32px;
 `;

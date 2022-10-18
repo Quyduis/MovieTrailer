@@ -1,8 +1,7 @@
-import { MovieListItemTypeA, Text } from "component";
-import SwitchButton from "component/SwitchButton";
-import { Movie } from "model/movie";
-import { ReactNode, useState } from "react";
-import { HorzontalList } from "./styled";
+import { Text } from "component";
+import { ReactNode } from "react";
+import SwitchButton from "../switch-button";
+import { Container, HorzontalList } from "./styled";
 
 interface Props {
   title: string;
@@ -22,10 +21,14 @@ const HorizontalListMovie = ({
   };
 
   return (
-    <div className="pb-8">
+    <Container className={backgroundUrl ? 'transition' : ''} backgroundUrl={backgroundUrl}>
       {/* Header */}
       <div className="m-8 flex flex-row items-center gap-8">
-        <Text size="large" weight="bold">
+        <Text
+          color={backgroundUrl ? "white" : "black"}
+          size="large"
+          weight="bold"
+        >
           {title}
         </Text>
         {/* Switch button */}
@@ -37,8 +40,8 @@ const HorizontalListMovie = ({
       </div>
 
       {/* Movie Item */}
-      <HorzontalList backgroundUrl={backgroundUrl}>{listItem}</HorzontalList>
-    </div>
+      <HorzontalList>{listItem}</HorzontalList>
+    </Container>
   );
 };
 

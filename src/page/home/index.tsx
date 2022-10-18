@@ -1,7 +1,8 @@
-import { MovieListItemTypeA } from "component";
 import { Movie } from "model/movie";
 import Banner from "./component/banner";
 import HorizontalListMovie from "./component/horizontal-list-movie";
+import MovieListItemTypeA from "./component/movie-list-item-type-a";
+import MovieListItemTypeB from "./component/movie-list-item-type-b";
 import UseHome from "./hook/useHome";
 
 const HomePage = () => {
@@ -24,6 +25,8 @@ const HomePage = () => {
     getBannerMovieTrending,
     listMoviePopular,
     listMovieToprated,
+    handleHoverMovieTopRated,
+    imageHover,
   } = UseHome();
 
   /**
@@ -60,7 +63,13 @@ const HomePage = () => {
     return (
       Array.isArray(listMovieToprated) &&
       listMovieToprated?.map((item: Movie) => {
-        return <MovieListItemTypeA key={item.id} movieItem={item} />;
+        return (
+          <MovieListItemTypeB
+            onHover={handleHoverMovieTopRated}
+            key={item.id}
+            movieItem={item}
+          />
+        );
       })
     );
   };
@@ -82,6 +91,7 @@ const HomePage = () => {
         title="Top Rated"
         listItem={renderTopRatedItem()}
         onClickToggle={() => {}}
+        backgroundUrl={imageHover}
       />
 
       {/* List movie trending */}

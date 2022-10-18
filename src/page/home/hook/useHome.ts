@@ -28,6 +28,7 @@ const useMovieTopratedQuery = (queryKey: string[]) =>
   useQuery(queryKey, HomeApi.getListMovieTopRated);
 
 export const UseHome = () => {
+  const [imageHover, setImageHover] = useState<string>("");
   // Call function query list movie trending week
   const movieTrendingResponse = useMovieTrendingQuery(
     Constant.QUERY_KEY.HOME.TRENDING_TODAY
@@ -55,10 +56,18 @@ export const UseHome = () => {
       const randomIndex = Math.floor(Math.random() * listMovieTrending.length);
       // Get random movie
       const randomMovie = listMovieTrending[randomIndex];
-      console.log("+++ quyy", randomMovie.backdrop_path);
       return randomMovie.backdrop_path;
     }
     return "";
+  };  
+
+  /**
+   * Handle hover to movie top rated
+   * @param imageUrl 
+   */
+  const handleHoverMovieTopRated = (imageUrl: string) => {
+    console.log("+++ alooo", imageUrl);
+    setImageHover(`${Constant.IMAGE_PATH_W1920_H427}/${imageUrl}`);
   };
 
   return {
@@ -66,6 +75,8 @@ export const UseHome = () => {
     listMoviePopular: moviePopularResponse?.data?.results || [],
     listMovieToprated: movieTopRatedResponse?.data?.results || [],
     getBannerMovieTrending,
+    handleHoverMovieTopRated,
+    imageHover,
   };
 };
 

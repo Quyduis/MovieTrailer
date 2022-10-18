@@ -11,6 +11,7 @@ export const CardStyled = styled(Card)`
   width: 150px;
   border: none;
   position: relative;
+  cursor: pointer;
   .ant-card-body {
     padding: 0;
   }
