@@ -1,5 +1,4 @@
 import { PlayCircleOutlined } from "@ant-design/icons";
-import { Text } from "component";
 import { Movie } from "model/movie";
 import Constants from "util/Constants";
 import { CardStyled } from "./styled";
@@ -32,9 +31,9 @@ const MovieListItemTypeB = ({ movieItem, onHover }: IProps) => {
         alt="poster"
       />
 
-      <Text className="title" color="white" size="medium" weight="bold">
+      {/* <Text className="title" color="white" size="medium" weight="bold">
         {movieItem?.title} Text dai Text Dai Text dai Text Dai 
-      </Text>
+      </Text> */}
     </CardStyled>
   );
 };
