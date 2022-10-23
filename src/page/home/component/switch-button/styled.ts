@@ -1,13 +1,17 @@
-
-
 /** CSS Switch */
 
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Constant from "util/Constants";
 import { Text } from "component";
 
-export const SwitchWrapper = styled.div`
-  border: 1px solid ${Constant.MAIN_COLOR};
+interface IProps {
+  isLightTheme?: boolean;
+}
+
+export const SwitchWrapper = styled.div<IProps>`
+  border: 1px solid
+    ${(props) =>
+      props.isLightTheme ? "var(--light-green)" : Constant.MAIN_COLOR};
   border-radius: 20px;
   max-width: 200px;
   height: 30px;
@@ -20,11 +24,12 @@ export const SwitchWrapper = styled.div`
   padding: 0px 16px;
 `;
 
-export const Switch = styled.div`
+export const Switch = styled.div<IProps>`
+  background: ${(props) =>
+    props.isLightTheme ? "var(--linear-gradient-light)" : Constant.MAIN_COLOR};
   border-radius: 20px;
   width: 100px;
   transition: all 3s ease-in-out;
-  background-color: ${Constant.MAIN_COLOR};
   position: absolute;
   height: 100%;
   display: flex;
@@ -40,17 +45,20 @@ export const Switch = styled.div`
   }
 `;
 
-export const ToggleLabel = styled(Text)`
+export const ToggleLabel = styled(Text)<IProps>`
   z-index: 10;
   line-height: 1.8;
   &.high-light {
-    background: linear-gradient(to right, #c0fecf 0%, #1ed5a9 100%);
+    background: ${(props) =>
+      props.isLightTheme
+        ? Constant.MAIN_COLOR
+        : "var(--linear-gradient-light)"};
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   &.normal {
-    color: black;
+    color: ${(props) => (props.isLightTheme ? "white" : "black")};
   }
 `;

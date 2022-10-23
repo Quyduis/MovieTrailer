@@ -5,20 +5,30 @@ import Constant from "util/Constants";
 import { HorizontalListProps } from "./type";
 
 export const Container = styled.div<HorizontalListProps>`
+  .header-container {
+    & > *{
+      z-index: 1;
+    }
+  }
   ${(props) => {
     if (props.backgroundUrl) {
       return css`
+        background-image: ${(props: HorizontalListProps) =>
+          `url(${props.backgroundUrl})`};
         padding: 0.5rem 0;
-        transition: all 2s ease-out;
-        background-image: linear-gradient(
-            to right,
-            rgba(3, 37, 65, 0.8) 0%,
-            rgba(3, 37, 65, 0) 100%
-          ),
-          ${(props: HorizontalListProps) => `url(${props.backgroundUrl})`};
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          background-image: var(--linear-gradient-dark);
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+        }
       `;
     }
   }}

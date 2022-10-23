@@ -6,11 +6,7 @@ interface BannerProps {
 }
 
 export const BannerStyled = styled.div<BannerProps>`
-  background-image: linear-gradient(
-      to right,
-      rgba(3, 37, 65, 0.8) 0%,
-      rgba(3, 37, 65, 0) 100%
-    ),
+  background-image: var(--linear-gradient-dark),
     ${(props: BannerProps) => `url(${props.url})`};
   min-height: 18.75rem;
   max-height: 22.5rem;

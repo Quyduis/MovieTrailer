@@ -1,4 +1,5 @@
 import { Movie } from "model/movie";
+import Constant from "util/Constants";
 import Banner from "./component/banner";
 import HorizontalListMovie from "./component/horizontal-list-movie";
 import MovieListItemTypeA from "./component/movie-list-item-type-a";
@@ -92,6 +93,10 @@ const HomePage = () => {
         listItem={renderTopRatedItem()}
         onClickToggle={() => {}}
         backgroundUrl={imageHover}
+        initialBackgroundUrl={`${Constant.IMAGE_PATH_W1920_H427}/${
+          listMovieToprated[0]?.poster_path || ""
+        }`}
+        isLightTheme
       />
 
       {/* List movie trending */}

@@ -1,5 +1,5 @@
 import { Text } from "component";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import SwitchButton from "../switch-button";
 import { Container, HorzontalList } from "./styled";
 
@@ -8,6 +8,8 @@ interface Props {
   onClickToggle: () => void;
   listItem: ReactNode;
   backgroundUrl?: string;
+  initialBackgroundUrl?: string;
+  isLightTheme?: boolean;
 }
 
 const HorizontalListMovie = ({
@@ -15,17 +17,32 @@ const HorizontalListMovie = ({
   onClickToggle,
   listItem,
   backgroundUrl,
+  initialBackgroundUrl,
+  isLightTheme,
 }: Props) => {
   const handleToggleButton = (data: string) => {
     onClickToggle();
   };
+  const ref = useRef<any>();
+
+  useEffect(() => {
+    if (backgroundUrl && ref) {
+      ref.current.style.transition = "none";
+      ref.current.style.transition = "all 1s";
+      // ref.current.style.backgroundImage = `url(${backgroundUrl})`;
+    }
+  }, [backgroundUrl]);
 
   return (
-    <Container className={backgroundUrl ? 'transition' : ''} backgroundUrl={backgroundUrl}>
+    <Container
+      ref={ref}
+      className="lazy"
+      backgroundUrl={backgroundUrl ? backgroundUrl : initialBackgroundUrl}
+    >
       {/* Header */}
-      <div className="m-8 flex flex-row items-center gap-8">
+      <div className="m-8 flex flex-row items-center gap-8 header-container">
         <Text
-          color={backgroundUrl ? "white" : "black"}
+          color={isLightTheme ? "white" : "black"}
           size="large"
           weight="bold"
         >
@@ -36,11 +53,12 @@ const HorizontalListMovie = ({
           leftLabel="Today"
           rightLabel="This Week"
           onToggle={handleToggleButton}
+          isLightTheme={isLightTheme}
         />
       </div>
 
       {/* Movie Item */}
-      <HorzontalList>{listItem}</HorzontalList>
+      <HorzontalList className="list-container">{listItem}</HorzontalList>
     </Container>
   );
 };

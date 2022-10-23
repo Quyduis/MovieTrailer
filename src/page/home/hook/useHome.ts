@@ -62,11 +62,10 @@ export const UseHome = () => {
   };  
 
   /**
-   * Handle hover to movie top rated
+   * Handle hover to movie item top rated
    * @param imageUrl 
    */
   const handleHoverMovieTopRated = (imageUrl: string) => {
-    console.log("+++ alooo", imageUrl);
     setImageHover(`${Constant.IMAGE_PATH_W1920_H427}/${imageUrl}`);
   };
 

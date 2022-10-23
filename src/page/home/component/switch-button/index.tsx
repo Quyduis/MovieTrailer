@@ -5,9 +5,15 @@ interface IProps {
   leftLabel: string;
   rightLabel: string;
   onToggle: (type: string) => void;
+  isLightTheme?: boolean;
 }
 
-const SwitchButton = ({ leftLabel, rightLabel, onToggle }: IProps) => {
+const SwitchButton = ({
+  leftLabel,
+  rightLabel,
+  onToggle,
+  isLightTheme = false,
+}: IProps) => {
   const [type, setType] = useState("toggle-left");
 
   const handleClick = () => {
@@ -19,12 +25,16 @@ const SwitchButton = ({ leftLabel, rightLabel, onToggle }: IProps) => {
     });
   };
   return (
-    <SwitchWrapper onClick={handleClick}>
-      <ToggleLabel className={type === "toggle-left" ? "high-light" : "normal"}>
+    <SwitchWrapper isLightTheme={isLightTheme} onClick={handleClick}>
+      <ToggleLabel
+        isLightTheme={isLightTheme}
+        className={type === "toggle-left" ? "high-light" : "normal"}
+      >
         {leftLabel}
       </ToggleLabel>
-      <Switch className={type} />
+      <Switch isLightTheme={isLightTheme} className={type} />
       <ToggleLabel
+        isLightTheme={isLightTheme}
         className={type === "toggle-right" ? "high-light" : "normal"}
       >
         {rightLabel}

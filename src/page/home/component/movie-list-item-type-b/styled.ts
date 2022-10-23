@@ -8,6 +8,8 @@ export const CardStyled = styled(Card)`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   border-radius: ${Constant.STYLED.BORDER_RADIUS_POSTER};
+  z-index: 1;
+  background-color: transparent;
   .ant-card-body {
     padding: 0;
     .image-more {
@@ -25,10 +27,13 @@ export const CardStyled = styled(Card)`
     .icon-play {
       position: absolute;
       color: white;
-      font-size: 80px;
       top: 50%;
       left: 50%;
       transform: translateY(-50%) translateX(-50%);
+      width: 5rem;
+      width: 5rem;
+      height: auto;
+      /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
     }
 
     .image-poster {
@@ -36,13 +41,18 @@ export const CardStyled = styled(Card)`
       max-width: 18.75rem;
       border-radius: ${Constant.STYLED.BORDER_RADIUS_POSTER};
     }
+
+    .title {
+      text-align: center;
+    }
   }
 
   &:hover {
     transform: scale(1.05);
     & .icon-play {
+      transition: all 0.2s ease-in-out;
       top: 50%;
-      transform: translateY(-50%) translateX(-50%) scale(1.05);
+      transform: translateY(-50%) translateX(-50%) scale(1.25);
     }
   }
 `;
