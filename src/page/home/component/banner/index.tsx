@@ -33,7 +33,7 @@ const Banner = ({ bannerMovieTrending }: BannerProps) => {
     >
       <div>
         <Text style={{ fontSize: "3rem" }} color="white" weight="bold">
-          Welcome.
+          Welcome. Quy
         </Text>
         <Text style={{ fontSize: "2rem" }} color="white" weight="semi-bold">
           Millions of movies, TV shows and people to discover. Explore now.
