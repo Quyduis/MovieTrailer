@@ -12,18 +12,6 @@ interface BannerProps {
 const Banner = ({ bannerMovieTrending }: BannerProps) => {
   const { confirm } = Modal;
   const showModalConfirm = (values: any) => {
-    // confirm({
-    //   title: "Do you Want to delete these items?",
-    //   icon: <ExclamationCircleOutlined />,
-    //   content: "Some descriptions",
-    //   onOk() {
-    //     console.log("OK");
-    //   },
-    //   onCancel() {
-    //     console.log("Cancel");
-    //   },
-    // });
-    console.log("+++ bannerr", bannerMovieTrending);
   };
 
   return (
@@ -33,7 +21,7 @@ const Banner = ({ bannerMovieTrending }: BannerProps) => {
     >
       <div>
         <Text style={{ fontSize: "3rem" }} color="white" weight="bold">
-          Welcome. Quy
+          Welcome.
         </Text>
         <Text style={{ fontSize: "2rem" }} color="white" weight="semi-bold">
           Millions of movies, TV shows and people to discover. Explore now.
