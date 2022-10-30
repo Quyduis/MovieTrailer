@@ -1,3 +1,5 @@
+import { DeviceSize } from "./DeviceSize";
+
 interface IConstants {
   PUBLIC_URL: string;
   MAIN_COLOR: string;
@@ -19,6 +21,11 @@ interface IConstants {
     };
   };
   DATE_FORMAT: string;
+  SCREEN: {
+    SMALL: string;
+    MEDIUM: string;
+    LARGE: string;
+  }
 }
 
 const Constant: IConstants = {
@@ -45,6 +52,11 @@ const Constant: IConstants = {
     },
   },
   DATE_FORMAT: "MMM DD, YYYY",
+  SCREEN: {
+    SMALL: `only screen and (max-width: ${DeviceSize.medium})`,
+    MEDIUM: `only screen and (min-width: ${DeviceSize.medium})`,
+    LARGE:  `only screen and (min-width: ${DeviceSize.large})`
+  }
 };
 
 export default Constant;

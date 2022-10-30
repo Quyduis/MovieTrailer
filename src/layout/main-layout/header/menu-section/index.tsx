@@ -1,16 +1,15 @@
+import { MenuOutlined } from "@ant-design/icons";
 import { Dropdown, Menu } from "antd";
 import { Text } from "component";
 import Constant from "util/Constants";
+import { MenuContainer } from "./styled";
 
 const MenuSection = () => {
-
-  const handleMenuClick = () => {
-    
-  }
+  const handleMenuClick = () => {};
 
   const menu = (
     <Menu
-        onClick={handleMenuClick}
+      onClick={handleMenuClick}
       items={[
         {
           label: "1st menu item",
@@ -28,37 +27,36 @@ const MenuSection = () => {
     />
   );
 
-
   return (
-    <div className="flex flex-row gap-x-4 items-center">
+    <MenuContainer>
+      <MenuOutlined className="menu-icon" />
       <img
         className="h-5"
         alt="logo"
         src={`${Constant.PUBLIC_URL}/assets/tmdb_image.svg`}
       />
-      {/* <MenuStled items={items} mode="horizontal" /> */}
 
-      <Dropdown overlay={menu}>
-        <Text size="medium" color="white" weight="semi-bold">
+      <Dropdown overlayClassName="menu-list" overlay={menu}>
+        <Text className="menu-item" size="medium" color="white" weight="semi-bold">
           Movies
         </Text>
       </Dropdown>
       <Dropdown overlay={menu}>
-        <Text size="medium" color="white" weight="semi-bold">
+        <Text className="menu-item" size="medium" color="white" weight="semi-bold">
           TV Shows
         </Text>
       </Dropdown>
       <Dropdown overlay={menu}>
-        <Text size="medium" color="white" weight="semi-bold">
+        <Text className="menu-item" size="medium" color="white" weight="semi-bold">
           Peoples
         </Text>
       </Dropdown>
       <Dropdown overlay={menu}>
-        <Text size="medium" color="white" weight="semi-bold">
+        <Text className="menu-item" size="medium" color="white" weight="semi-bold">
           More
         </Text>
       </Dropdown>
-    </div>
+    </MenuContainer>
   );
 };
 

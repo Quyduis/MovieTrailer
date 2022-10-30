@@ -76,7 +76,7 @@ const HomePage = () => {
   };
 
   return (
-    <div>
+    <>
       {/* Banner Image and Search */}
       <Banner bannerMovieTrending={getBannerMovieTrending()} />
 
@@ -105,7 +105,7 @@ const HomePage = () => {
         listItem={renderTrendingItem()}
         onClickToggle={() => {}}
       />
-    </div>
+    </>
   );
 };
 

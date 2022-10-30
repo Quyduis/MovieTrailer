@@ -6,16 +6,16 @@ import Header from "./header";
 
 const MainLayout = () => {
   return (
-    <div>
+    <>
       <Header />
-      <div className="container px-16">
+      <div>
         <Routes>
           <Route path="*" element={<HomePage />} />
           <Route path="test" element={<LeaderBoardPage />} />
         </Routes>
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 

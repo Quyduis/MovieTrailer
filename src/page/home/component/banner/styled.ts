@@ -1,5 +1,6 @@
 import { Form, Input } from "antd";
 import styled from "styled-components";
+import Constant from "util/Constants";
 
 interface BannerProps {
   url: string;
@@ -9,7 +10,7 @@ export const BannerStyled = styled.div<BannerProps>`
   background-image: var(--linear-gradient-dark),
     ${(props: BannerProps) => `url(${props.url})`};
   min-height: 18.75rem;
-  max-height: 22.5rem;
+  /* max-height: 22.5rem; */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,6 +18,12 @@ export const BannerStyled = styled.div<BannerProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 2rem 1rem;
+  @media ${Constant.SCREEN.LARGE} {
+    margin-left: 3.75rem;
+    margin-right: 3.75rem;
+    padding: 4rem 2rem;
+  }
 `;
 
 export const FormStyled = styled(Form)`

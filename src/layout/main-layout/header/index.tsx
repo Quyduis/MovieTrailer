@@ -1,12 +1,13 @@
 import HelperSection from "./helper-section";
 import MenuSection from "./menu-section";
+import { HeaderContainer } from "./styled";
 
 const Header = () => {
   return (
-    <div className="bg-main-color py-5 px-12 flex flex-row justify-between">
+    <HeaderContainer>
       <MenuSection />
       <HelperSection />
-    </div>
+    </HeaderContainer>
   );
 };
 

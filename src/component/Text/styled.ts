@@ -3,7 +3,7 @@ import { TextProps } from "./type";
 
 export const TextStyled = styled.p<TextProps>`
   color: ${(prop) => prop.color || "black"};
-  line-height: 1.5;
+  line-height: normal;
   word-break: break-word;
   cursor: pointer;
   ${(prop: TextProps) => {
