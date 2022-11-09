@@ -16,7 +16,14 @@ export const MenuContainer = styled.div`
     display: none;
   }
 
+  .img-tmdb {
+    display: none;
+  }
+
   @media ${Constant.SCREEN.LARGE} {
+    .img-tmdb {
+      display: block;
+    }
     .menu-icon {
       display: none;
     }

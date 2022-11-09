@@ -1,4 +1,29 @@
-.container {
-  padding-left: 30px;
-  padding-right: 30px;
+
+/* width */
+::-webkit-scrollbar {
+  max-width: 8px !important;
+  max-height: 8px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* background: red; */
+  /* background-color: blue; */
+  max-width: 8px !important;
+  max-height: 8px !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888 !important;
+  max-width: 8px !important;
+  min-height: 8px !important;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555 !important;
+  max-width: 8px !important;
+  max-height: 8px !important;
 }

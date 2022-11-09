@@ -31,7 +31,7 @@ const MenuSection = () => {
     <MenuContainer>
       <MenuOutlined className="menu-icon" />
       <img
-        className="h-5"
+        className="img-tmdb h-5"
         alt="logo"
         src={`${Constant.PUBLIC_URL}/assets/tmdb_image.svg`}
       />

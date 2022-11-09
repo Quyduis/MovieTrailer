@@ -34,7 +34,7 @@ const Banner = ({ bannerMovieTrending }: BannerProps) => {
         onFinish={showModalConfirm}
       >
         <Form.Item name="username">
-          <Input placeholder="Search for a movie, tv show, person......" />
+          <Input placeholder="Search..." />
         </Form.Item>
         <Input className="submit" type="submit" value={"Search"} />
       </FormStyled>

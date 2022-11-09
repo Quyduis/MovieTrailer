@@ -18,7 +18,7 @@ export const BannerStyled = styled.div<BannerProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2rem 1rem;
+  padding: 2rem 1.5rem;
   @media ${Constant.SCREEN.LARGE} {
     margin-left: 3.75rem;
     margin-right: 3.75rem;
@@ -29,6 +29,7 @@ export const BannerStyled = styled.div<BannerProps>`
 export const FormStyled = styled(Form)`
   max-height: 50px;
   position: relative;
+  margin-top: 1rem;
   & .ant-input {
     border-radius: 30px;
     padding: 10px 20px;

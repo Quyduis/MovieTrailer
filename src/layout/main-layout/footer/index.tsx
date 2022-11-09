@@ -7,7 +7,7 @@ const Footer = () => {
     <FooterWrapper>
       {/* Footer Icon */}
       <img
-        className="w-32.5 h-23.5"
+        className="footer-icon w-32.5 h-23.5"
         src={`${Constant.PUBLIC_URL}/assets/footer_image.svg`}
         alt="footer"
       />
