@@ -20,8 +20,6 @@ export const BannerStyled = styled.div<BannerProps>`
   justify-content: space-between;
   padding: 2rem 1.5rem;
   @media ${Constant.SCREEN.LARGE} {
-    margin-left: 3.75rem;
-    margin-right: 3.75rem;
     padding: 4rem 2rem;
   }
 `;
