@@ -5,18 +5,26 @@ import Constant from "util/Constants";
 import { HorizontalListProps } from "./type";
 
 export const ScrollWrapper = styled.div`
-position: relative;
+  position: relative;
   &::after {
     content: "";
     position: absolute;
     height: 100%;
-    width: 64px;
+    width: 2.5rem;
     top: 0;
     right: 0;
-    background-image: linear-gradient(to right, rgba(255,255,255,0) 0%, #fff 100%);
+    background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      #fff 100%
+    );
     z-index: 1000;
+
+    @media ${Constant.SCREEN.LARGE} {
+      width: 3.75rem;
+    }
   }
-`
+`;
 
 export const Container = styled.div<HorizontalListProps>`
   .header-container {
