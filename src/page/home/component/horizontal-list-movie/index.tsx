@@ -1,7 +1,7 @@
 import { Text } from "component";
 import { ReactNode, useEffect, useRef } from "react";
 import SwitchButton from "../switch-button";
-import { Container, HorzontalList } from "./styled";
+import { Container, HorzontalList, ScrollWrapper } from "./styled";
 
 interface Props {
   title: string;
@@ -34,32 +34,34 @@ const HorizontalListMovie = ({
   }, [backgroundUrl]);
 
   return (
-    <Container
-      ref={ref}
-      className="lazy"
-      backgroundUrl={backgroundUrl ? backgroundUrl : initialBackgroundUrl}
-    >
-      {/* Header */}
-      <div className="m-8 flex flex-row items-center gap-8 header-container">
-        <Text
-          color={isLightTheme ? "white" : "black"}
-          size="large"
-          weight="bold"
-        >
-          {title}
-        </Text>
-        {/* Switch button */}
-        <SwitchButton
-          leftLabel="Today"
-          rightLabel="This Week"
-          onToggle={handleToggleButton}
-          isLightTheme={isLightTheme}
-        />
-      </div>
+    <ScrollWrapper>
+      <Container
+        ref={ref}
+        className="lazy"
+        backgroundUrl={backgroundUrl ? backgroundUrl : initialBackgroundUrl}
+      >
+        {/* Header */}
+        <div className="m-8 flex flex-row items-center gap-8 header-container">
+          <Text
+            color={isLightTheme ? "white" : "black"}
+            size="large"
+            weight="bold"
+          >
+            {title}
+          </Text>
+          {/* Switch button */}
+          <SwitchButton
+            leftLabel="Today"
+            rightLabel="This Week"
+            onToggle={handleToggleButton}
+            isLightTheme={isLightTheme}
+          />
+        </div>
 
-      {/* Movie Item */}
-      <HorzontalList className="list-container">{listItem}</HorzontalList>
-    </Container>
+        {/* Movie Item */}
+        <HorzontalList className="list-container">{listItem}</HorzontalList>
+      </Container>
+    </ScrollWrapper>
   );
 };
 

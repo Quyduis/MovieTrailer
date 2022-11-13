@@ -1,12 +1,26 @@
 import { Card } from "antd";
 
-import styled, { css, keyframes } from "styled-components";
+import styled, { css } from "styled-components";
 import Constant from "util/Constants";
 import { HorizontalListProps } from "./type";
 
+export const ScrollWrapper = styled.div`
+position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 64px;
+    top: 0;
+    right: 0;
+    background-image: linear-gradient(to right, rgba(255,255,255,0) 0%, #fff 100%);
+    z-index: 1000;
+  }
+`
+
 export const Container = styled.div<HorizontalListProps>`
   .header-container {
-    & > *{
+    & > * {
       z-index: 1;
     }
   }
