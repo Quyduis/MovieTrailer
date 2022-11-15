@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { Switch, SwitchWrapper, ToggleLabel } from "./styled";
+import {
+  Switch,
+  SwitchWrapperDesktop,
+  ToggleLabel,
+  SwitchWrapperForMobile,
+} from "./styled";
+import { IoIosArrowDown } from "react-icons/io";
 
 interface IProps {
   leftLabel: string;
@@ -14,9 +20,20 @@ const SwitchButton = ({
   onToggle,
   isLightTheme = false,
 }: IProps) => {
+  /**
+   * NOTE(QUY-PHAM): Use For Large Screen
+   */
   const [type, setType] = useState("toggle-left");
 
-  const handleClick = () => {
+  /**
+   * NOTE(QUY-PHAM): Use For Small Screen
+   */
+  const [isExpand, setExpand] = useState(false);
+
+  /**
+   * Handle Action Click Switch Button For LARRGE Screen
+   */
+  const handleClickSwitchButtonForLargeScreen = () => {
     setType((oldType) => {
       const newType =
         oldType === "toggle-left" ? "toggle-right" : "toggle-left";
@@ -24,22 +41,63 @@ const SwitchButton = ({
       return newType;
     });
   };
+
+  /**
+   * Handle Action Click Switch Button For SMALL Screen
+   */
+  const handleClickSwitchButtonForSmallScreen = () => {
+    setExpand(!isExpand);
+  };
   return (
-    <SwitchWrapper isLightTheme={isLightTheme} onClick={handleClick}>
-      <ToggleLabel
+    <>
+      {/* Switch Button For Large Screen */}
+      <SwitchWrapperDesktop
         isLightTheme={isLightTheme}
-        className={type === "toggle-left" ? "high-light" : "normal"}
+        onClick={handleClickSwitchButtonForLargeScreen}
       >
-        {leftLabel}
-      </ToggleLabel>
-      <Switch isLightTheme={isLightTheme} className={type} />
-      <ToggleLabel
+        <ToggleLabel
+          isLightTheme={isLightTheme}
+          className={type === "toggle-left" ? "high-light" : "normal"}
+        >
+          {leftLabel}
+        </ToggleLabel>
+        <Switch isLightTheme={isLightTheme} className={type} />
+        <ToggleLabel
+          isLightTheme={isLightTheme}
+          className={type === "toggle-right" ? "high-light" : "normal"}
+        >
+          {rightLabel}
+        </ToggleLabel>
+      </SwitchWrapperDesktop>
+
+      {/* Switch Button For Small Screen */}
+      <SwitchWrapperForMobile
         isLightTheme={isLightTheme}
-        className={type === "toggle-right" ? "high-light" : "normal"}
+        isExpand={isExpand}
+        onClick={handleClickSwitchButtonForSmallScreen}
       >
-        {rightLabel}
-      </ToggleLabel>
-    </SwitchWrapper>
+        <div className="toggle-label-wrapper">
+          <ToggleLabel
+            isLightTheme={isLightTheme}
+            className={type === "toggle-left" ? "high-light" : "normal"}
+          >
+            {leftLabel}
+          </ToggleLabel>
+        </div>
+
+        <div className="switch" />
+        {isExpand && (
+          <div className="toggle-label-wrapper">
+            <ToggleLabel
+              isLightTheme={isLightTheme}
+              className={type === "toggle-right" ? "high-light" : "normal"}
+            >
+              {rightLabel}
+            </ToggleLabel>
+          </div>
+        )}
+      </SwitchWrapperForMobile>
+    </>
   );
 };
 
