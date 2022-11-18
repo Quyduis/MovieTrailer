@@ -8,7 +8,7 @@ const MainLayout = () => {
   return (
     <>
       <Header />
-      <div>
+      <div className="container">
         <Routes>
           <Route path="*" element={<HomePage />} />
           <Route path="test" element={<LeaderBoardPage />} />
