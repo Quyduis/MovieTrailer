@@ -10,6 +10,8 @@ import { IoIosArrowDown } from "react-icons/io";
 interface IProps {
   leftLabel: string;
   rightLabel: string;
+  leftValue: string;
+  rightValue: string;
   onToggle: (type: string) => void;
   isLightTheme?: boolean;
 }
@@ -31,9 +33,12 @@ const SwitchButton = ({
   const [isExpand, setExpand] = useState(false);
 
   /**
-   * Handle Action Click Switch Button For LARRGE Screen
+   * Handle Action Click Switch Button
    */
-  const handleClickSwitchButtonForLargeScreen = () => {
+  const handleClickSwitchButton = () => {
+    // Set expand or collapse for small screen
+    setExpand(!isExpand);
+    
     setType((oldType) => {
       const newType =
         oldType === "toggle-left" ? "toggle-right" : "toggle-left";
@@ -42,18 +47,12 @@ const SwitchButton = ({
     });
   };
 
-  /**
-   * Handle Action Click Switch Button For SMALL Screen
-   */
-  const handleClickSwitchButtonForSmallScreen = () => {
-    setExpand(!isExpand);
-  };
   return (
     <>
       {/* Switch Button For Large Screen */}
       <SwitchWrapperDesktop
         isLightTheme={isLightTheme}
-        onClick={handleClickSwitchButtonForLargeScreen}
+        onClick={handleClickSwitchButton}
       >
         <ToggleLabel
           isLightTheme={isLightTheme}
@@ -74,7 +73,7 @@ const SwitchButton = ({
       <SwitchWrapperForMobile
         isLightTheme={isLightTheme}
         isExpand={isExpand}
-        onClick={handleClickSwitchButtonForSmallScreen}
+        onClick={handleClickSwitchButton}
       >
         <div className="toggle-label-wrapper">
           <ToggleLabel

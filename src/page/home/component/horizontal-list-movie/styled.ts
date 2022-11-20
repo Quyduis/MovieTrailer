@@ -109,5 +109,6 @@ export const HorzontalList = styled.div`
   margin-top: 2.875rem;
   @media ${Constant.SCREEN.LARGE} {
     padding: 2rem;
+    margin-top: 0;
   }
 `;

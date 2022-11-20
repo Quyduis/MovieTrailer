@@ -25,7 +25,12 @@ interface IConstants {
     SMALL: string;
     MEDIUM: string;
     LARGE: string;
-  }
+  };
+  MEDIA_TYPE: {
+    POPULAR: string;
+    TOP_RATED: string;
+    TRENDING: string;
+  };
 }
 
 const Constant: IConstants = {
@@ -55,8 +60,13 @@ const Constant: IConstants = {
   SCREEN: {
     SMALL: `only screen and (max-width: ${DeviceSize.medium})`,
     MEDIUM: `only screen and (min-width: ${DeviceSize.medium})`,
-    LARGE:  `only screen and (min-width: ${DeviceSize.large})`
-  }
+    LARGE: `only screen and (min-width: ${DeviceSize.large})`,
+  },
+  MEDIA_TYPE: {
+    POPULAR: "popular",
+    TOP_RATED: "top_rated",
+    TRENDING: "trending",
+  },
 };
 
 export default Constant;

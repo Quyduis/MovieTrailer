@@ -85,6 +85,17 @@ const HomePage = () => {
         title="What's Popular"
         listItem={renderPopularItem()}
         onClickToggle={() => {}}
+        switchOptionLabel={[
+          {
+            label: "Movie",
+            value: "movie",
+          },
+          {
+            label: "On TV",
+            value: "tv",
+          },
+        ]}
+        mediaType={Constant.MEDIA_TYPE.POPULAR}
       />
 
       {/* List movie top rated */}
@@ -97,6 +108,17 @@ const HomePage = () => {
           listMovieToprated[0]?.poster_path || ""
         }`}
         isLightTheme
+        switchOptionLabel={[
+          {
+            label: "Movie",
+            value: "movie",
+          },
+          {
+            label: "On TV",
+            value: "tv",
+          },
+        ]}
+        mediaType={Constant.MEDIA_TYPE.TOP_RATED}
       />
 
       {/* List movie trending */}
@@ -104,6 +126,17 @@ const HomePage = () => {
         title="Trending"
         listItem={renderTrendingItem()}
         onClickToggle={() => {}}
+        switchOptionLabel={[
+          {
+            label: "To Day",
+            value: "day",
+          },
+          {
+            label: "This Week",
+            value: "tv",
+          },
+        ]}
+        mediaType={Constant.MEDIA_TYPE.TRENDING}
       />
     </>
   );

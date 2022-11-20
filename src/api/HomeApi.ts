@@ -1,5 +1,6 @@
 import { ListRespone } from "model/common";
 import { Movie } from "model/movie";
+import { TV } from "model/tv";
 import axiosClient from "./AxiosClient";
 
 const HomeApi = {
@@ -18,6 +19,14 @@ const HomeApi = {
   getListMoviePopuplar(): Promise<ListRespone<Movie>> {
     return axiosClient.get("/movie/popular")
   },
+
+    /**
+   * GET list tv popular
+   * @returns 
+   */
+     getListTvPopuplar(): Promise<ListRespone<TV>> {
+      return axiosClient.get("/tv/popular")
+    },
 
   /**
    * GET list movie top rated
