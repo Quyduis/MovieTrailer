@@ -44,7 +44,7 @@ const HorizontalListMovie = ({
             >
                 <div className="column-wrapper">
                     {/* Header */}
-                    <div className="m-8 flex flex-row items-center gap-8 header-container">
+                    <div className="header-wrapper">
                         <Text
                             color={isLightTheme ? "white" : "black"}
                             size="large"
