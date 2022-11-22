@@ -2,9 +2,13 @@ import Constant from "util/Constants";
 import { Text } from "component";
 import { FooterWrapper } from "./sytled";
 
-const Footer = () => {
+interface IProps {
+  className?: string
+}
+
+const Footer = (props: IProps) => {
   return (
-    <FooterWrapper>
+    <FooterWrapper {...props}>
       {/* Footer Icon */}
       <img
         className="footer-icon w-32.5 h-23.5"

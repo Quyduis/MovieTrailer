@@ -1,3 +1,4 @@
+import ModalCusTom from "component/modal";
 import { Movie } from "model/movie";
 import Constant from "util/Constants";
 import Banner from "./component/banner";
@@ -5,6 +6,7 @@ import HorizontalListMovie from "./component/horizontal-list-movie";
 import MovieListItemTypeA from "./component/movie-list-item-type-a";
 import MovieListItemTypeB from "./component/movie-list-item-type-b";
 import UseHome from "./hook/useHome";
+
 
 const HomePage = () => {
   /**
@@ -28,6 +30,7 @@ const HomePage = () => {
     listMovieToprated,
     handleHoverMovieTopRated,
     imageHover,
+    handleClickItemTopRated,
   } = UseHome();
 
   /**
@@ -69,6 +72,7 @@ const HomePage = () => {
             onHover={handleHoverMovieTopRated}
             key={item.id}
             movieItem={item}
+            onClickItem={handleClickItemTopRated}
           />
         );
       })
@@ -138,6 +142,9 @@ const HomePage = () => {
         ]}
         mediaType={Constant.MEDIA_TYPE.TRENDING}
       />
+
+      {/* Modal top rated trailer */}
+      <ModalCusTom />
     </>
   );
 };

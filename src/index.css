@@ -38,3 +38,20 @@ code {
     monospace;
 }
 
+/* Antd Modal style */
+.ant-modal-mask {
+  background: none !important;
+}
+
+body:has(.ant-modal-mask) .container{
+  filter: grayscale(100%);
+}
+
+body:has(.ant-modal-mask) .app-header{
+  filter: grayscale(100%);
+}
+
+body:has(.ant-modal-mask) .app-footer{
+  filter: grayscale(100%);
+}
+

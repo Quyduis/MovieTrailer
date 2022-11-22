@@ -6,6 +6,7 @@ import { CardStyled } from "./styled";
 interface IProps {
   movieItem: Movie;
   onHover: (imageUrl: string) => void;
+  onClickItem: () => void;
 }
 
 const MovieListItemTypeB = ({ movieItem, onHover }: IProps) => {

@@ -69,6 +69,10 @@ export const UseHome = () => {
     setImageHover(`${Constant.IMAGE_PATH_W1920_H427}/${imageUrl}`);
   };
 
+  const handleClickItemTopRated = () => {
+    
+  }
+
   return {
     listMovieTrending: movieTrendingResponse?.data?.results || [],
     listMoviePopular: moviePopularResponse?.data?.results || [],
@@ -76,6 +80,7 @@ export const UseHome = () => {
     getBannerMovieTrending,
     handleHoverMovieTopRated,
     imageHover,
+    handleClickItemTopRated
   };
 };
 

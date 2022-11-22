@@ -7,6 +7,7 @@ export const MenuContainer = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 1rem;
+  
   .menu-icon {
     display: block;
     color: white;
