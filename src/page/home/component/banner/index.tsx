@@ -3,7 +3,6 @@ import { Form, Input, Modal } from "antd";
 import { Text } from "component";
 import Constant from "util/Constants";
 import { BannerStyled, FormStyled } from "./styled";
-import "./test.scss";
 
 interface BannerProps {
   bannerMovieTrending?: string;

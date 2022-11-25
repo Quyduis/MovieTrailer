@@ -38,11 +38,6 @@ code {
     monospace;
 }
 
-/* Antd Modal style */
-.ant-modal-mask {
-  background: none !important;
-}
-
 body:has(.ant-modal-mask) .container{
   filter: grayscale(100%);
 }
