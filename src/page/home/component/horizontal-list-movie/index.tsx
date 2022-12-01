@@ -16,28 +16,25 @@ interface ISwitchOptionLabel extends Array<{ label: string; value: string }> {
 
 interface Props {
   title: string;
-  onClickToggle: () => void;
   listItem: ReactNode;
   backgroundUrl?: string;
   initialBackgroundUrl?: string;
   isLightTheme?: boolean;
   switchOptionLabel: ISwitchOptionLabel;
   mediaType: string;
+  onClickSwitchButton: (value: string) => void;
 }
 
 const HorizontalListMovie = ({
   title,
-  onClickToggle,
   listItem,
   backgroundUrl,
   initialBackgroundUrl,
   isLightTheme,
   switchOptionLabel,
   mediaType,
+  onClickSwitchButton,
 }: Props) => {
-  const handleToggleButton = (data: string) => {
-    onClickToggle();
-  };
   const ref = useRef<any>();
 
   useEffect(() => {
@@ -71,8 +68,8 @@ const HorizontalListMovie = ({
               rightLabel={switchOptionLabel[1].label}
               leftValue={switchOptionLabel[0].value}
               rightValue={switchOptionLabel[1].value}
-              onToggle={handleToggleButton}
               isLightTheme={isLightTheme}
+              onClickSwitchButonn={onClickSwitchButton}
             />
           </div>
 

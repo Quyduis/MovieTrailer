@@ -69,6 +69,14 @@ export const UseHome = () => {
     setImageHover(`${Constant.IMAGE_PATH_W1920_H427}/${imageUrl}`);
   };
 
+  const handleClickSwitchButton = (value: string) => {
+    console.log('+++ clickk', value);
+    
+  }
+
+  /**
+   * Handle Click Item Top Rated
+   */
   const handleClickItemTopRated = () => {
     
   }
@@ -80,6 +88,7 @@ export const UseHome = () => {
     getBannerMovieTrending,
     handleHoverMovieTopRated,
     imageHover,
+    handleClickSwitchButton,
     handleClickItemTopRated
   };
 };

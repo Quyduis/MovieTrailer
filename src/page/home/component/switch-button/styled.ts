@@ -56,6 +56,7 @@ export const Switch = styled.div<IProps>`
 export const ToggleLabel = styled(Text)<IProps>`
   z-index: 10;
   line-height: 1.8;
+  user-select: none;
   &.high-light {
     background: ${(props) =>
       props.isLightTheme

@@ -30,6 +30,7 @@ const HomePage = () => {
     listMovieToprated,
     handleHoverMovieTopRated,
     imageHover,
+    handleClickSwitchButton,
     handleClickItemTopRated,
   } = UseHome();
 
@@ -88,7 +89,6 @@ const HomePage = () => {
       <HorizontalListMovie
         title="What's Popular"
         listItem={renderPopularItem()}
-        onClickToggle={() => {}}
         switchOptionLabel={[
           {
             label: "Movie",
@@ -100,13 +100,13 @@ const HomePage = () => {
           },
         ]}
         mediaType={Constant.MEDIA_TYPE.POPULAR}
+        onClickSwitchButton={handleClickSwitchButton}
       />
 
       {/* List movie top rated */}
       <HorizontalListMovie
         title="Top Rated"
         listItem={renderTopRatedItem()}
-        onClickToggle={() => {}}
         backgroundUrl={imageHover}
         initialBackgroundUrl={`${Constant.IMAGE_PATH_W1920_H427}/${
           listMovieToprated[0]?.poster_path || ""
@@ -123,13 +123,13 @@ const HomePage = () => {
           },
         ]}
         mediaType={Constant.MEDIA_TYPE.TOP_RATED}
+        onClickSwitchButton={handleClickSwitchButton}
       />
 
       {/* List movie trending */}
       <HorizontalListMovie
         title="Trending"
         listItem={renderTrendingItem()}
-        onClickToggle={() => {}}
         switchOptionLabel={[
           {
             label: "To Day",
@@ -137,10 +137,11 @@ const HomePage = () => {
           },
           {
             label: "This Week",
-            value: "tv",
+            value: "week",
           },
         ]}
         mediaType={Constant.MEDIA_TYPE.TRENDING}
+        onClickSwitchButton={handleClickSwitchButton}
       />
 
       {/* Modal top rated trailer */}

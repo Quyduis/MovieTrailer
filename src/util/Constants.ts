@@ -31,6 +31,8 @@ interface IConstants {
     TOP_RATED: string;
     TRENDING: string;
   };
+  TOGGLE_LEFT: string;
+  TOGGLE_RIGHT: string;
 }
 
 const Constant: IConstants = {
@@ -67,6 +69,8 @@ const Constant: IConstants = {
     TOP_RATED: "top_rated",
     TRENDING: "trending",
   },
+  TOGGLE_LEFT: 'toggle-left',
+  TOGGLE_RIGHT: 'toggle-right',
 };
 
 export default Constant;
