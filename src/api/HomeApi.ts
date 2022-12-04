@@ -8,32 +8,24 @@ const HomeApi = {
    * GET list movie trending
    * @returns 
    */
-  getListMovieTrending(): Promise<ListRespone<Movie>> {
-    return axiosClient.get("/trending/movie/week");
+  getListMovieTrending(type: string): Promise<ListRespone<Movie>> {
+    return axiosClient.get(`/trending/movie/${type}`);
   },
 
   /**
    * GET list movie popular
    * @returns 
    */
-  getListMoviePopuplar(): Promise<ListRespone<Movie>> {
-    return axiosClient.get("/movie/popular")
+  getListMoviePopuplar(type: string): Promise<ListRespone<Movie>> {
+    return axiosClient.get(`/${type}/popular`)
   },
-
-    /**
-   * GET list tv popular
-   * @returns 
-   */
-     getListTvPopuplar(): Promise<ListRespone<TV>> {
-      return axiosClient.get("/tv/popular")
-    },
 
   /**
    * GET list movie top rated
    * @returns 
    */
-  getListMovieTopRated(): Promise<ListRespone<Movie>> {
-    return axiosClient.get("/movie/top_rated")
+  getListMovieTopRated(type: string): Promise<ListRespone<Movie>> {
+    return axiosClient.get(`/${type}/top_rated`)
   }
 };
 

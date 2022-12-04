@@ -7,7 +7,7 @@ import { HomeAction } from "./home-slice";
 function* fetchDataSaga() {
   try {
     const response: ListRespone<Movie> = yield call(
-      HomeApi.getListMovieTrending
+      HomeApi.getListMovieTrending, 'movie'
     );
      const { data } = response;
      console.log("dataa", data);

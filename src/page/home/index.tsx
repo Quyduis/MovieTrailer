@@ -7,7 +7,6 @@ import MovieListItemTypeA from "./component/movie-list-item-type-a";
 import MovieListItemTypeB from "./component/movie-list-item-type-b";
 import UseHome from "./hook/useHome";
 
-
 const HomePage = () => {
   /**
    * *******************REDUX-TOOlKIT*******************
@@ -100,7 +99,9 @@ const HomePage = () => {
           },
         ]}
         mediaType={Constant.MEDIA_TYPE.POPULAR}
-        onClickSwitchButton={handleClickSwitchButton}
+        onClickSwitchButton={(value) =>
+          handleClickSwitchButton(value, Constant.MEDIA_TYPE.POPULAR)
+        }
       />
 
       {/* List movie top rated */}
@@ -123,7 +124,9 @@ const HomePage = () => {
           },
         ]}
         mediaType={Constant.MEDIA_TYPE.TOP_RATED}
-        onClickSwitchButton={handleClickSwitchButton}
+        onClickSwitchButton={(value) =>
+          handleClickSwitchButton(value, Constant.MEDIA_TYPE.TOP_RATED)
+        }
       />
 
       {/* List movie trending */}
@@ -141,7 +144,9 @@ const HomePage = () => {
           },
         ]}
         mediaType={Constant.MEDIA_TYPE.TRENDING}
-        onClickSwitchButton={handleClickSwitchButton}
+        onClickSwitchButton={(value) =>
+          handleClickSwitchButton(value, Constant.MEDIA_TYPE.TRENDING)
+        }
       />
 
       {/* Modal top rated trailer */}

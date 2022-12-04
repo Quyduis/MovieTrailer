@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Constant from "util/Constants";
 import {
   Switch,
@@ -35,33 +35,29 @@ const SwitchButton = ({
   const [isExpand, setExpand] = useState(false);
 
   /**
+   * Handle type of switch button changed
+   */
+
+  /**
    * Handle Action Click Switch Button
    */
-  const handleClickSwitchButton = () => {
+  const handleClickSwitchButton = (value: string) => {
     // Set expand or collapse for small screen
     setExpand(!isExpand);
 
-    setType((oldType) => {
-      const newType =
-        oldType === Constant.TOGGLE_LEFT
-          ? Constant.TOGGLE_RIGHT
-          : Constant.TOGGLE_LEFT;
-
-      return newType;
-    });
-    onClickSwitchButonn(rightValue);
+    setType(value === leftValue ? Constant.TOGGLE_LEFT : Constant.TOGGLE_RIGHT);
+    // Call back when click switch button
+    onClickSwitchButonn(value);
   };
 
   return (
     <>
       {/* Switch Button For Large Screen */}
-      <SwitchWrapperDesktop
-        isLightTheme={isLightTheme}
-        onClick={handleClickSwitchButton}
-      >
+      <SwitchWrapperDesktop isLightTheme={isLightTheme}>
         <ToggleLabel
           isLightTheme={isLightTheme}
           className={type === Constant.TOGGLE_LEFT ? "high-light" : "normal"}
+          onClick={() => handleClickSwitchButton(leftValue)}
         >
           {leftLabel}
         </ToggleLabel>
@@ -69,21 +65,19 @@ const SwitchButton = ({
         <ToggleLabel
           isLightTheme={isLightTheme}
           className={type === Constant.TOGGLE_RIGHT ? "high-light" : "normal"}
+          onClick={() => handleClickSwitchButton(rightValue)}
         >
           {rightLabel}
         </ToggleLabel>
       </SwitchWrapperDesktop>
 
       {/* Switch Button For Small Screen */}
-      <SwitchWrapperForMobile
-        isLightTheme={isLightTheme}
-        isExpand={isExpand}
-        onClick={handleClickSwitchButton}
-      >
+      <SwitchWrapperForMobile isLightTheme={isLightTheme} isExpand={isExpand}>
         <div className="toggle-label-wrapper">
           <ToggleLabel
             isLightTheme={isLightTheme}
             className={type === Constant.TOGGLE_LEFT ? "high-light" : "normal"}
+            onClick={() => handleClickSwitchButton(leftValue)}
           >
             {leftLabel}
           </ToggleLabel>
@@ -97,6 +91,7 @@ const SwitchButton = ({
               className={
                 type === Constant.TOGGLE_RIGHT ? "high-light" : "normal"
               }
+              onClick={() => handleClickSwitchButton(rightLabel)}
             >
               {rightLabel}
             </ToggleLabel>
