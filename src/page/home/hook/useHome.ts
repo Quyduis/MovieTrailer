@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import HomeApi from "api/HomeApi";
 import Constant from "util/Constants";
+import _isEmpty from "lodash/isEmpty";
 
 interface IMediaType {
   popularType: string;
@@ -35,6 +36,7 @@ const useMovieTopratedQuery = (queryKey: string[], type: string) =>
 
 export const UseHome = () => {
   const [imageHover, setImageHover] = useState<string>("");
+  const [bannerMovieTrending, setBannerMovieTrending] = useState<string>("");
   const [mediaType, setMediaType] = useState<IMediaType>({
     popularType: "movie",
     topRatedType: "movie",
@@ -60,20 +62,18 @@ export const UseHome = () => {
 
   /**
    * Get Image banner
-   * @returns url banner image
    */
-  const getBannerMovieTrending = () => {
+  useEffect(() => {
     const listMovieTrending = movieTrendingResponse?.data?.results;
     // Get random banner image from  list movie trending
-    if (Array.isArray(listMovieTrending)) {
+    if (Array.isArray(listMovieTrending) && !_isEmpty(listMovieTrending)) {
       // Get random index from 0 to length of listMovieTrending
       const randomIndex = Math.floor(Math.random() * listMovieTrending.length);
       // Get random movie
       const randomMovie = listMovieTrending[randomIndex];
-      return randomMovie.backdrop_path;
+      setBannerMovieTrending(randomMovie.backdrop_path);
     }
-    return "";
-  };
+  }, [movieTrendingResponse?.data?.results]);
 
   /**
    * Handle hover to movie item top rated
@@ -113,7 +113,7 @@ export const UseHome = () => {
     listMovieTrending: movieTrendingResponse?.data?.results || [],
     listMoviePopular: moviePopularResponse?.data?.results || [],
     listMovieToprated: movieTopRatedResponse?.data?.results || [],
-    getBannerMovieTrending,
+    bannerMovieTrending,
     handleHoverMovieTopRated,
     imageHover,
     handleClickSwitchButton,

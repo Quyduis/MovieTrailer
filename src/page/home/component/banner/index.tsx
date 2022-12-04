@@ -9,7 +9,6 @@ interface BannerProps {
 }
 
 const Banner = ({ bannerMovieTrending }: BannerProps) => {
-  const { confirm } = Modal;
   const showModalConfirm = (values: any) => {
   };
 

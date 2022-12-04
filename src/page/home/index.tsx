@@ -24,7 +24,7 @@ const HomePage = () => {
 
   const {
     listMovieTrending,
-    getBannerMovieTrending,
+    bannerMovieTrending,
     listMoviePopular,
     listMovieToprated,
     handleHoverMovieTopRated,
@@ -82,7 +82,7 @@ const HomePage = () => {
   return (
     <>
       {/* Banner Image and Search */}
-      <Banner bannerMovieTrending={getBannerMovieTrending()} />
+      <Banner bannerMovieTrending={bannerMovieTrending} />
 
       {/* List movie popular */}
       <HorizontalListMovie
