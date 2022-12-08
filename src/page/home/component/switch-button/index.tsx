@@ -42,13 +42,28 @@ const SwitchButton = ({
    * Handle Action Click Switch Button
    */
   const handleClickSwitchButton = (value: string) => {
-    // Set expand or collapse for small screen
-    setExpand(!isExpand);
-
     setType(value === leftValue ? Constant.TOGGLE_LEFT : Constant.TOGGLE_RIGHT);
+
     // Call back when click switch button
-    onClickSwitchButonn(value);
+    // onClickSwitchButonn(value); // TODO mở comment chổ này
   };
+
+  /**
+   * Handle Action Click Switch Button For Small Screen
+   */
+  const handleClickSwitchButtonForSmallScreen = (value: string) => {
+    // Set switch button expand or collapse for small screen
+
+    if(isExpand) {
+      setType(value === leftValue ? Constant.TOGGLE_LEFT : Constant.TOGGLE_RIGHT);
+      console.log("+++ value", value);
+    }
+  };
+
+  const onClickTest = (e: any) => {
+    // e.stopPropagation()
+    setExpand(!isExpand);
+  }
 
   return (
     <>
@@ -72,18 +87,26 @@ const SwitchButton = ({
       </SwitchWrapperDesktop>
 
       {/* Switch Button For Small Screen */}
-      <SwitchWrapperForMobile isLightTheme={isLightTheme} isExpand={isExpand}>
+      <SwitchWrapperForMobile isLightTheme={isLightTheme} isExpand={isExpand} onClick={(e) => onClickTest(e)}>
         <div className="toggle-label-wrapper">
           <ToggleLabel
             isLightTheme={isLightTheme}
-            className={type === Constant.TOGGLE_LEFT ? "high-light" : "normal"}
-            onClick={() => handleClickSwitchButton(leftValue)}
+            className={
+              type === Constant.TOGGLE_LEFT || !isExpand
+                ? "high-light"
+                : "normal"
+            }
+            onClick={() =>
+              handleClickSwitchButtonForSmallScreen(
+                type === Constant.TOGGLE_LEFT ? leftValue : rightValue
+              )
+            }
           >
-            {leftLabel}
+            {type === Constant.TOGGLE_LEFT ? leftLabel : rightLabel}
           </ToggleLabel>
         </div>
 
-        <div className="switch" />
+        <div className={`switch ${type}`} />
         {isExpand && (
           <div className="toggle-label-wrapper">
             <ToggleLabel
@@ -91,9 +114,13 @@ const SwitchButton = ({
               className={
                 type === Constant.TOGGLE_RIGHT ? "high-light" : "normal"
               }
-              onClick={() => handleClickSwitchButton(rightLabel)}
+              onClick={() =>
+                handleClickSwitchButtonForSmallScreen(
+                  type === Constant.TOGGLE_LEFT ? rightValue : leftValue
+                )
+              }
             >
-              {rightLabel}
+              {type === Constant.TOGGLE_LEFT ? rightLabel : leftLabel}
             </ToggleLabel>
           </div>
         )}

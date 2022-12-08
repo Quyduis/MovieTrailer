@@ -104,6 +104,14 @@ export const SwitchWrapperForMobile = styled.div<IPropsSmallScreen>`
       position: absolute;
     }
 
+    &.switch, .toggle-right {
+      bottom: 0;
+    }
+
+    &.switch, .toggle-left {
+      top: 0;
+    }
+
     .toggle-label-wrapper {
       padding: 0.25rem 1rem;
       z-index: 1;
