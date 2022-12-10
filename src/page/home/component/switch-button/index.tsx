@@ -45,7 +45,7 @@ const SwitchButton = ({
     setType(value === leftValue ? Constant.TOGGLE_LEFT : Constant.TOGGLE_RIGHT);
 
     // Call back when click switch button
-    // onClickSwitchButonn(value); // TODO mở comment chổ này
+    onClickSwitchButonn(value);
   };
 
   /**
@@ -54,16 +54,39 @@ const SwitchButton = ({
   const handleClickSwitchButtonForSmallScreen = (value: string) => {
     // Set switch button expand or collapse for small screen
 
-    if(isExpand) {
-      setType(value === leftValue ? Constant.TOGGLE_LEFT : Constant.TOGGLE_RIGHT);
-      console.log("+++ value", value);
+    console.log("+++ value", value);
+
+    if (isExpand) {
+      setType(
+        value === leftValue ? Constant.TOGGLE_LEFT : Constant.TOGGLE_RIGHT
+      );
+      // Call back when click switch button
+      onClickSwitchButonn(value);
     }
   };
 
-  const onClickTest = (e: any) => {
-    // e.stopPropagation()
+  /**
+   * Render left label for small screen
+   * @returns
+   */
+  const renderLeftlabelForSmallScreen = () => {
+    // If switch button is NOT expand => show label selected
+    // Else => show left label
+    if (isExpand) {
+      return leftLabel;
+    }
+    return type === Constant.TOGGLE_LEFT ? leftLabel : rightLabel;
+  };
+
+  /**
+   * Handle click expand switch button for small screen
+   * @param event
+   */
+  const handleClickExpandSwitchButtonForSmallScreen = (event: any) => {
+    event.stopPropagation();
+    event.preventDefault();
     setExpand(!isExpand);
-  }
+  };
 
   return (
     <>
@@ -87,7 +110,11 @@ const SwitchButton = ({
       </SwitchWrapperDesktop>
 
       {/* Switch Button For Small Screen */}
-      <SwitchWrapperForMobile isLightTheme={isLightTheme} isExpand={isExpand} onClick={(e) => onClickTest(e)}>
+      <SwitchWrapperForMobile
+        isLightTheme={isLightTheme}
+        isExpand={isExpand}
+        onClick={(e) => handleClickExpandSwitchButtonForSmallScreen(e)}
+      >
         <div className="toggle-label-wrapper">
           <ToggleLabel
             isLightTheme={isLightTheme}
@@ -96,13 +123,9 @@ const SwitchButton = ({
                 ? "high-light"
                 : "normal"
             }
-            onClick={() =>
-              handleClickSwitchButtonForSmallScreen(
-                type === Constant.TOGGLE_LEFT ? leftValue : rightValue
-              )
-            }
+            onClick={() => handleClickSwitchButtonForSmallScreen(leftValue)}
           >
-            {type === Constant.TOGGLE_LEFT ? leftLabel : rightLabel}
+            {renderLeftlabelForSmallScreen()}
           </ToggleLabel>
         </div>
 
@@ -114,13 +137,9 @@ const SwitchButton = ({
               className={
                 type === Constant.TOGGLE_RIGHT ? "high-light" : "normal"
               }
-              onClick={() =>
-                handleClickSwitchButtonForSmallScreen(
-                  type === Constant.TOGGLE_LEFT ? rightValue : leftValue
-                )
-              }
+              onClick={() => handleClickSwitchButtonForSmallScreen(rightValue)}
             >
-              {type === Constant.TOGGLE_LEFT ? rightLabel : leftLabel}
+              {rightLabel}
             </ToggleLabel>
           </div>
         )}
