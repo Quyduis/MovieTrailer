@@ -15,9 +15,10 @@ export const HeaderContainer = styled.div`
     @media ${Constant.SCREEN.LARGE} {
         padding: 1.25rem 3rem;
         position: fixed;
-        z-index: 1;
+        z-index: 100;
         width: 100%;
         transition: top 0.5s;
+        top: 0;
         .img-tmdb-moblie {
             display: none;
         }

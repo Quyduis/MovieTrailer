@@ -11,6 +11,9 @@ const MainLayout = () => {
   const bannerRef = useRef<any>();
 
   useEffect(() => {
+    console.log('+++ headerRef', headerRef);
+    console.log('+++ bannerRef', bannerRef);
+    console.log('+++ headerRef && bannerRef', headerRef && bannerRef);
     // Show or hide header when window scroll
     let prevScrollpos = window.pageYOffset;
     const handleScroll = () => {
@@ -22,6 +25,7 @@ const MainLayout = () => {
         } else {
           headerRef.current.style.top = "-100%";
         }
+        console.log('+++ vao ham', currentScrollPos);
 
         if (currentScrollPos === 0) {
           bannerRef.current.style.marginTop = "3.75rem";
