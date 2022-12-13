@@ -1,4 +1,4 @@
-import ModalCusTom from "component/modal";
+import ModalPreviewTrailer from "component/modal/modal-preview-trailer";
 import { Movie } from "model/movie";
 import Constant from "util/Constants";
 import Banner from "./component/banner";
@@ -7,7 +7,11 @@ import MovieListItemTypeA from "./component/movie-list-item-type-a";
 import MovieListItemTypeB from "./component/movie-list-item-type-b";
 import UseHome from "./hook/useHome";
 
-const HomePage = () => {
+interface IProps {
+  bannerRef: any;
+}
+
+const HomePage = ({ bannerRef }: IProps) => {
   /**
    * *******************REDUX-TOOlKIT*******************
    */
@@ -31,6 +35,9 @@ const HomePage = () => {
     imageHover,
     handleClickSwitchButton,
     handleClickItemTopRated,
+    topRatedPreviewKey,
+    isShowModalPreviewTrailer,
+    handleCloseModalPreviewTrailer,
   } = UseHome();
 
   /**
@@ -72,7 +79,7 @@ const HomePage = () => {
             onHover={handleHoverMovieTopRated}
             key={item.id}
             movieItem={item}
-            onClickItem={handleClickItemTopRated}
+            onClickItem={() => handleClickItemTopRated(item.id)}
           />
         );
       })
@@ -82,7 +89,7 @@ const HomePage = () => {
   return (
     <>
       {/* Banner Image and Search */}
-      <Banner bannerMovieTrending={bannerMovieTrending} />
+      <Banner ref={bannerRef} bannerMovieTrending={bannerMovieTrending} />
 
       {/* List movie popular */}
       <HorizontalListMovie
@@ -150,7 +157,11 @@ const HomePage = () => {
       />
 
       {/* Modal top rated trailer */}
-      <ModalCusTom />
+      <ModalPreviewTrailer
+        keyMovie={topRatedPreviewKey}
+        visible={isShowModalPreviewTrailer}
+        onCloseModal={handleCloseModalPreviewTrailer}
+      />
     </>
   );
 };

@@ -18,6 +18,7 @@ interface IConstants {
       TRENDING_TODAY: string[];
       MOVIE_POPULAR: string[];
       MOVIE_TOP_RATED: string[];
+      MOVIE_TOP_RATED_PREVIEW: string[];
     };
   };
   DATE_FORMAT: string;
@@ -56,6 +57,7 @@ const Constant: IConstants = {
       TRENDING_TODAY: ["HOME", "TRENDING-TODAY"],
       MOVIE_POPULAR: ["HOME", "MOVIE-POPULAR"],
       MOVIE_TOP_RATED: ["HOME", "MOVIE-TOP_RATED"],
+      MOVIE_TOP_RATED_PREVIEW: ["HOME", "MOVIE-TOP_RATED_PREVIEW"],
     },
   },
   DATE_FORMAT: "MMM DD, YYYY",

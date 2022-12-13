@@ -9,11 +9,12 @@ interface IProps {
   onClickItem: () => void;
 }
 
-const MovieListItemTypeB = ({ movieItem, onHover }: IProps) => {
+const MovieListItemTypeB = ({ movieItem, onHover, onClickItem }: IProps) => {
   return (
     <CardStyled
       className="item"
       onMouseEnter={() => onHover(movieItem?.poster_path)}
+      onClick={onClickItem}
     >
       <img
         className="image-more"

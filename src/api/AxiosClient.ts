@@ -27,11 +27,6 @@ axiosClient.interceptors.response.use(
   (response: any) => {
     console.log("+++ response", response);
 
-    // return {
-    //   responseData: response?.data,
-    //   ...response
-    // }
-
     return {
       ...response?.data,
       status: response?.data?.status,

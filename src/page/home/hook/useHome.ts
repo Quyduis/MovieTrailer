@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import HomeApi from "api/HomeApi";
 import Constant from "util/Constants";
 import _isEmpty from "lodash/isEmpty";
+import DetailMovieApi from "api/DetaiMovieApi";
 
 interface IMediaType {
   popularType: string;
@@ -29,10 +30,30 @@ const useMoviePopularQuery = (queryKey: string[], type: string) =>
 /**
  * Query get list movie top rated
  * @param queryKey
- * @returns
+ * @returns Query
  */
 const useMovieTopratedQuery = (queryKey: string[], type: string) =>
   useQuery([...queryKey, type], () => HomeApi.getListMovieTopRated(type));
+
+/**
+ *
+ * @param querykey Query get trailer movie top rated
+ * @param id
+ * @returns Query
+ */
+const useMovieTopRatedPreview = (querykey: string[], id?: number) => {
+  return useQuery(
+    [...querykey, id],
+    () => DetailMovieApi.getMovieDetailInfo(id),
+    {
+      enabled: typeof id !== "undefined",
+      select: (movieDetailData) =>
+        movieDetailData?.videos?.results.find(
+          (item) => item?.type === "Trailer"
+        )?.key,
+    }
+  );
+};
 
 export const UseHome = () => {
   const [imageHover, setImageHover] = useState<string>("");
@@ -42,6 +63,8 @@ export const UseHome = () => {
     topRatedType: "movie",
     trendingType: "day",
   });
+  const [isShowModalPreviewTrailer, setShowPreviewTrailer] = useState(false);
+  const [movieId, setMovieId] = useState<number | undefined>(undefined);
   // Call function query list movie trending week
   const movieTrendingResponse = useMovieTrendingQuery(
     Constant.QUERY_KEY.HOME.TRENDING_TODAY,
@@ -58,6 +81,11 @@ export const UseHome = () => {
   const movieTopRatedResponse = useMovieTopratedQuery(
     Constant.QUERY_KEY.HOME.MOVIE_TOP_RATED,
     mediaType.topRatedType
+  );
+  // Call function query top rated movie preview (Select Key)
+  let topRatedPreviewResponseSelectKey = useMovieTopRatedPreview(
+    Constant.QUERY_KEY.HOME.MOVIE_TOP_RATED_PREVIEW,
+    movieId
   );
 
   /**
@@ -100,24 +128,32 @@ export const UseHome = () => {
       default:
         setMediaType((oldData) => ({ ...oldData, trendingType: value }));
     }
-
-    // moviePopularResponse.refetch()
   };
 
   /**
    * Handle Click Item Top Rated
    */
-  const handleClickItemTopRated = () => {};
+  const handleClickItemTopRated = (id: number) => {
+    setMovieId(id);
+    setShowPreviewTrailer(true);
+  };
+
+  const handleCloseModalPreviewTrailer = () => {
+    setShowPreviewTrailer(false);
+  };
 
   return {
     listMovieTrending: movieTrendingResponse?.data?.results || [],
     listMoviePopular: moviePopularResponse?.data?.results || [],
     listMovieToprated: movieTopRatedResponse?.data?.results || [],
+    topRatedPreviewKey: topRatedPreviewResponseSelectKey?.data || "",
     bannerMovieTrending,
     handleHoverMovieTopRated,
     imageHover,
     handleClickSwitchButton,
     handleClickItemTopRated,
+    isShowModalPreviewTrailer,
+    handleCloseModalPreviewTrailer,
   };
 };
 

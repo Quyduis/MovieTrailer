@@ -53,9 +53,6 @@ const SwitchButton = ({
    */
   const handleClickSwitchButtonForSmallScreen = (value: string) => {
     // Set switch button expand or collapse for small screen
-
-    console.log("+++ value", value);
-
     if (isExpand) {
       setType(
         value === leftValue ? Constant.TOGGLE_LEFT : Constant.TOGGLE_RIGHT

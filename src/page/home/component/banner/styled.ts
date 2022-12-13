@@ -21,6 +21,11 @@ export const BannerStyled = styled.div<BannerProps>`
   padding: 2rem 1.5rem;
   @media ${Constant.SCREEN.LARGE} {
     padding: 4rem 2rem;
+    /* position: absolute */
+  }
+  @media ${Constant.SCREEN.SMALL} {
+    margin-top: 0rem !important;
+    /* position: absolute */
   }
 `;
 

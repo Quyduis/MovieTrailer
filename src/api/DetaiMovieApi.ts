@@ -1,8 +1,14 @@
+import { MovieDetail } from "model/movie";
 import axiosClient from "./AxiosClient";
 
 const DetailMovieApi = {
-  getMovieDetailInfo () {
-
+    /**
+     * Get Detail
+     * @param id 
+     * @returns 
+     */
+  getMovieDetailInfo(id?: number): Promise<MovieDetail> {
+    return axiosClient.get(`movie/${id}?append_to_response=videos`);
   },
 };
 

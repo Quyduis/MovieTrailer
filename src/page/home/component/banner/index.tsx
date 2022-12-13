@@ -1,6 +1,7 @@
 import { Form, Input, Modal } from "antd";
 // import {Text} from 'src/'
 import { Text } from "component";
+import React from "react";
 import Constant from "util/Constants";
 import { BannerStyled, FormStyled } from "./styled";
 
@@ -8,13 +9,12 @@ interface BannerProps {
   bannerMovieTrending?: string;
 }
 
-const Banner = ({ bannerMovieTrending }: BannerProps) => {
-  const showModalConfirm = (values: any) => {
-  };
+const Banner = React.forwardRef(({ bannerMovieTrending }: BannerProps, ref: any) => {
 
   return (
     <BannerStyled
       url={`${Constant.IMAGE_PATH_ORIGINAL}${bannerMovieTrending}`}
+      ref={ref}
     >
       <>
         <Text style={{ fontSize: "3rem" }} color="white" weight="bold">
@@ -29,7 +29,6 @@ const Banner = ({ bannerMovieTrending }: BannerProps) => {
         initialValues={{ remember: true }}
         //   onFinish={onFinish}
         autoComplete="off"
-        onFinish={showModalConfirm}
       >
         <Form.Item name="username">
           <Input placeholder="Search..." />
@@ -38,6 +37,6 @@ const Banner = ({ bannerMovieTrending }: BannerProps) => {
       </FormStyled>
     </BannerStyled>
   );
-};
+});
 
 export default Banner;

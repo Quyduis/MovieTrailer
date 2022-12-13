@@ -68,7 +68,7 @@ export interface SpokenLanguage {
 }
 
 export interface Video {
-  result: VideoResult[];
+  results: VideoResult[];
 }
 
 export interface VideoResult {

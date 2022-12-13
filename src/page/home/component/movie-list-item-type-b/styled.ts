@@ -39,6 +39,7 @@ export const CardStyled = styled(Card)`
     .image-poster {
       min-width: 18.75rem;
       max-width: 18.75rem;
+      height: auto;
       border-radius: ${Constant.STYLED.BORDER_RADIUS_POSTER};
     }
 
