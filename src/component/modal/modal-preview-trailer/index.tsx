@@ -18,6 +18,7 @@ const ModalPreviewTrailer = ({ keyMovie, onCloseModal, ...props }: IProps) => {
         footer={null}
         onCancel={onCloseModal}
         destroyOnClose={true}
+        zIndex={3000}
       >
         <>
           <div className="modal-title-content">
