@@ -21,6 +21,7 @@ export const ImageWrapper = styled.div`
   border-radius: ${Constant.STYLED.BORDER_RADIUS_POSTER};
   height: 225px;
   margin-bottom: 24px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 `;
 
 export const ImagePoster = styled.img<ImagePosterProps>`

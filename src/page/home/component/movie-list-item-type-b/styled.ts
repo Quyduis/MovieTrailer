@@ -33,13 +33,13 @@ export const CardStyled = styled(Card)`
       width: 5rem;
       width: 5rem;
       height: auto;
-      /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
     }
 
     .image-poster {
       min-width: 18.75rem;
       max-width: 18.75rem;
       height: auto;
+      min-height: 160px;
       border-radius: ${Constant.STYLED.BORDER_RADIUS_POSTER};
     }
 
@@ -50,6 +50,7 @@ export const CardStyled = styled(Card)`
 
   &:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 16px 0 snow;
     & .icon-play {
       transition: all 0.2s ease-in-out;
       top: 50%;

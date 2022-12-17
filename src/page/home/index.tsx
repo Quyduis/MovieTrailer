@@ -117,7 +117,7 @@ const HomePage = ({ bannerRef }: IProps) => {
         listItem={renderTopRatedItem()}
         backgroundUrl={imageHover}
         initialBackgroundUrl={`${Constant.IMAGE_PATH_W1920_H427}/${
-          listMovieToprated[0]?.poster_path || ""
+          listMovieToprated[0]?.backdrop_path || ""
         }`}
         isLightTheme
         switchOptionLabel={[

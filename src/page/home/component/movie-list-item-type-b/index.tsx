@@ -13,7 +13,7 @@ const MovieListItemTypeB = ({ movieItem, onHover, onClickItem }: IProps) => {
   return (
     <CardStyled
       className="item"
-      onMouseEnter={() => onHover(movieItem?.poster_path)}
+      onMouseEnter={() => onHover(movieItem?.backdrop_path)}
       onClick={onClickItem}
     >
       <img
@@ -29,7 +29,7 @@ const MovieListItemTypeB = ({ movieItem, onHover, onClickItem }: IProps) => {
       {/* <PlayCircleOutlined className="icon-play" /> */}
       <img
         className="image-poster"
-        src={`${Constants.IMAGE_PATH_W710_H400}/${movieItem?.poster_path}`}
+        src={`${Constants.IMAGE_PATH_W710_H400}/${movieItem?.backdrop_path}`}
         alt="poster"
       />
 
