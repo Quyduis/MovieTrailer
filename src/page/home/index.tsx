@@ -8,7 +8,7 @@ import MovieListItemTypeB from "./component/movie-list-item-type-b";
 import UseHome from "./hook/useHome";
 
 interface IProps {
-  bannerRef: any;
+  bannerRef?: any;
 }
 
 const HomePage = ({ bannerRef }: IProps) => {
