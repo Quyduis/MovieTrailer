@@ -1,54 +1,54 @@
 import axiosClient from "api/AxiosClient";
 import { FastAverageColor } from "fast-average-color";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const MovieDetailPage = () => {
   const posterRef = useRef<any>();
-//   useEffect(() => {
-//     const src = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/mLbFg0u2DPYuB5CILzwWk3kdI8b.jpg";
-//     const options = {
-//       headers: {
-//         "Content-Type": "application/json",
-//         'Access-Control-Allow-Origin': '*',
-//         "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
-//         "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
-//       },
-//     };
-
-//     fetch(src, options)
-//       .then((res) => {
-//           console.log('+++ res', res);
-          
-//           return res.blob()
-//       })
-//       .then((blob) => {
-//         console.log('+++ fetch', URL.createObjectURL(blob));
-        
-//       });
-//       axiosClient.get("https://www.themoviedb.org/t/p/w600_and_h900_bestv2/mLbFg0u2DPYuB5CILzwWk3kdI8b.jpg")
-//   }, [posterRef.current]);
+  const [image, setImage] = useState('')
+    useEffect(() => {
+      toDataURL('https://image.tmdb.org/t/p/w220_and_h330_face/1Hie7gCDsvt7wtPRuUAk4ZzaoQa.jpg')
+    }, []);
 
   const handleOnLoadImg = () => {
-    // const container = document.querySelector("#test");
-    // const img = container!!.querySelector("img");
-    // // img?.setAttribute("crossOrigin", "");
-    // console.log("+++ loaded", img);
+    const container = document.querySelector("#test");
+    const img = container!!.querySelector("img");
+    // img?.setAttribute("crossOrigin", "");
+    console.log("+++ loaded", img);
     // img!!.crossOrigin = "Anonymous";
     const fac = new FastAverageColor();
-    // const color = fac.getColor(img);
-    // console.log("+++ color", color);
+    const color = fac.getColor(img);
+    console.log("+++ color", color);
 
-    fac.getColorAsync('https://www.themoviedb.org/t/p/w600_and_h900_bestv2/mLbFg0u2DPYuB5CILzwWk3kdI8b.jpg')
-    .then(color => {
-        // container.style.backgroundColor = color.rgba;
-        // container.style.color = color.isDark ? '#fff' : '#000';
+    // fac
+    //   .getColorAsync(
+    //     "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/mLbFg0u2DPYuB5CILzwWk3kdI8b.jpg"
+    //   )
+    //   .then((color) => {
+    //     // container.style.backgroundColor = color.rgba;
+    //     // container.style.color = color.isDark ? '#fff' : '#000';
 
-        console.log('Average color', color);
-    })
-    .catch(e => {
-        console.log(e);
-    });
+    //     console.log("Average color", color);
+    //   })
+    //   .catch((e) => {
+    //     console.log(e);
+    //   });
   };
+
+  function toDataURL(url: string) {
+    return fetch(url)
+      .then((response) => {
+        return response.blob();
+      })
+      .then((blob) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(blob);
+        reader.onload = () => setImage(String(reader.result));
+        // console.log("+++ blob", reader.result)
+        // reader.onerror = error => reject(error);
+
+        return URL.createObjectURL(blob);
+      });
+  }
 
   return (
     <div id="test">
@@ -56,10 +56,11 @@ const MovieDetailPage = () => {
         onLoad={handleOnLoadImg}
         id="poster"
         ref={posterRef}
-        src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/mLbFg0u2DPYuB5CILzwWk3kdI8b.jpg"
+        src={image}
         alt=""
         // crossOrigin="anonymous"
       />
+      
     </div>
   );
 };

@@ -6,6 +6,7 @@ const axiosClient = axios.create({
   baseURL: "https://api.themoviedb.org/3/",
   headers: {
     Authorization: `Bearer ${Constant.ACCESS_TOKEN}`,
+    
   },
   timeout: 300000,
 });
@@ -13,6 +14,8 @@ const axiosClient = axios.create({
 // Add a request interceptor
 axiosClient.interceptors.request.use(
   (config: AxiosRequestConfig) => {
+    console.log('+++ config', config);
+    
     // Do something before request is sent
     return config;
   },
