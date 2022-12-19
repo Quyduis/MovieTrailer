@@ -4,10 +4,12 @@ import { useEffect, useRef, useState } from "react";
 
 const MovieDetailPage = () => {
   const posterRef = useRef<any>();
-  const [image, setImage] = useState('')
-    useEffect(() => {
-      toDataURL('https://image.tmdb.org/t/p/w220_and_h330_face/1Hie7gCDsvt7wtPRuUAk4ZzaoQa.jpg')
-    }, []);
+  const [image, setImage] = useState("");
+  useEffect(() => {
+    toDataURL(
+      "https://image.tmdb.org/t/p/w220_and_h330_face/wKagJQQTViFNFNarcVp8xOSXIbh.jpg"
+    );
+  }, []);
 
   const handleOnLoadImg = () => {
     const container = document.querySelector("#test");
@@ -53,6 +55,7 @@ const MovieDetailPage = () => {
   return (
     <div id="test">
       <img
+        // style={{ visibility: "hidden" }}
         onLoad={handleOnLoadImg}
         id="poster"
         ref={posterRef}
@@ -60,7 +63,6 @@ const MovieDetailPage = () => {
         alt=""
         // crossOrigin="anonymous"
       />
-      
     </div>
   );
 };
