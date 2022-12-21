@@ -5,7 +5,7 @@ export const HeaderContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: var(--bg-main-color);
+    background-color: var(--bg-main);
     padding: 0.75rem 1.5rem;
     /* position: absolute;
     top: 0; */

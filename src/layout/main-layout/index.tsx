@@ -14,16 +14,17 @@ const MainLayout = () => {
   const location = useLocation();
 
   useEffect(() => {
-    console.log("+++ headerRef", headerRef);
-    console.log("+++ bannerRef", bannerRef);
-    console.log("+++ headerRef && bannerRef", headerRef && bannerRef);
+    window.scrollTo(0, 0)
+    // console.log("+++ headerRef", headerRef);
+    // console.log("+++ bannerRef", bannerRef);
+    // console.log("+++ headerRef && bannerRef", headerRef && bannerRef);
     // Show or hide header when window scroll
     let prevScrollpos = window.pageYOffset;
     const handleScroll = () => {
       if (headerRef && bannerRef) {
         const currentScrollPos = window.pageYOffset;
-        console.log("+++ prevScrollpos", prevScrollpos);
-        console.log("+++ currentScrollPos", currentScrollPos);
+        // console.log("+++ prevScrollpos", prevScrollpos);
+        // console.log("+++ currentScrollPos", currentScrollPos);
 
         if (prevScrollpos > currentScrollPos) {
           headerRef.current.style.top = "0";

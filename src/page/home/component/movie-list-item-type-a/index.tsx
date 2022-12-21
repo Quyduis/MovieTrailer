@@ -19,7 +19,7 @@ const MovieListItemTypeA = ({ movieItem }: Props) => {
   }, [movieItem.vote_average]);
 
   return (
-    <Link to='/main/movie-detail'>
+    <Link to="/main/movie-detail" state={{ movieId: movieItem.id }}>
       <CardStyled>
         {/* Icon more */}
         <ImageMore src={`${Constant.PUBLIC_URL}/assets/more_image.svg`} />

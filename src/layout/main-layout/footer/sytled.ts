@@ -6,7 +6,7 @@ export const FooterWrapper = styled.div`
   flex-direction: column;
   gap: 2rem;
   padding: 1.5rem;
-  background-color: var(--bg-main-color);
+  background-color: var(--bg-main);
   cursor: pointer;
   .footer-icon {
     display: none;

@@ -21,6 +21,9 @@ interface IConstants {
       MOVIE_TOP_RATED: string[];
       MOVIE_TOP_RATED_PREVIEW: string[];
     };
+    DETAIL: {
+      MOVIE: string[];
+    };
   };
   DATE_FORMAT: string;
   SCREEN: {
@@ -61,6 +64,9 @@ const Constant: IConstants = {
       MOVIE_POPULAR: ["HOME", "MOVIE-POPULAR"],
       MOVIE_TOP_RATED: ["HOME", "MOVIE-TOP_RATED"],
       MOVIE_TOP_RATED_PREVIEW: ["HOME", "MOVIE-TOP_RATED_PREVIEW"],
+    },
+    DETAIL: {
+      MOVIE: ["DETAIL", "MOVIE"],
     },
   },
   DATE_FORMAT: "MMM DD, YYYY",
