@@ -10,6 +10,7 @@ interface IConstants {
   IMAGE_PATH_W1920_H427: string;
   IMAGE_PATH_W710_H400: string;
   IMAGE_PATH_W600_H900_BEST_V2: string;
+  IMAGE_PATH_W1000_h450: string;
   STYLED: {
     BORDER_RADIUS_POSTER: string;
     COLOR_GRAY: string;
@@ -54,6 +55,7 @@ const Constant: IConstants = {
     "https://www.themoviedb.org/t/p/w710_and_h400_multi_faces",
   IMAGE_PATH_W600_H900_BEST_V2:
     "https://www.themoviedb.org/t/p/w600_and_h900_bestv2",
+  IMAGE_PATH_W1000_h450: "https://image.tmdb.org/t/p/w1000_and_h450_multi_faces",
   STYLED: {
     BORDER_RADIUS_POSTER: "8px",
     COLOR_GRAY: "rgba(0,0,0,0.6)",

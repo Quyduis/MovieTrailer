@@ -36,7 +36,8 @@ export const TextStyled = styled.p<TextProps>`
 
       case "tiny":
         return css`
-          font-size: 0.5rem;
+          font-size: 0.875rem;
+          font-weight: unset;
         `;
       default:
         return css`

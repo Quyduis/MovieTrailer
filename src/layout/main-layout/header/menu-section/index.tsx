@@ -1,6 +1,7 @@
 import { MenuOutlined } from "@ant-design/icons";
 import { Dropdown, Menu } from "antd";
 import { Text } from "component";
+import { Link } from "react-router-dom";
 import Constant from "util/Constants";
 import { MenuContainer } from "./styled";
 
@@ -30,29 +31,51 @@ const MenuSection = () => {
   return (
     <MenuContainer>
       <MenuOutlined className="menu-icon" />
-      <img
-        className="img-tmdb h-5"
-        alt="logo"
-        src={`${Constant.PUBLIC_URL}/assets/tmdb_image.svg`}
-      />
+      <Link to='/'>
+        <img
+          className="img-tmdb h-5"
+          alt="logo"
+          src={`${Constant.PUBLIC_URL}/assets/tmdb_image.svg`}
+        />
+      </Link>
 
       <Dropdown overlayClassName="menu-list" overlay={menu}>
-        <Text className="menu-item" size="medium" color="white" weight="semi-bold">
+        <Text
+          className="menu-item"
+          size="medium"
+          color="white"
+          weight="semi-bold"
+        >
           Movies
         </Text>
       </Dropdown>
       <Dropdown overlay={menu}>
-        <Text className="menu-item" size="medium" color="white" weight="semi-bold">
+        <Text
+          className="menu-item"
+          size="medium"
+          color="white"
+          weight="semi-bold"
+        >
           TV Shows
         </Text>
       </Dropdown>
       <Dropdown overlay={menu}>
-        <Text className="menu-item" size="medium" color="white" weight="semi-bold">
+        <Text
+          className="menu-item"
+          size="medium"
+          color="white"
+          weight="semi-bold"
+        >
           Peoples
         </Text>
       </Dropdown>
       <Dropdown overlay={menu}>
-        <Text className="menu-item" size="medium" color="white" weight="semi-bold">
+        <Text
+          className="menu-item"
+          size="medium"
+          color="white"
+          weight="semi-bold"
+        >
           More
         </Text>
       </Dropdown>
