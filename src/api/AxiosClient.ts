@@ -14,7 +14,6 @@ const axiosClient = axios.create({
 // Add a request interceptor
 axiosClient.interceptors.request.use(
   (config: AxiosRequestConfig) => {
-    console.log('+++ config', config);
     
     // Do something before request is sent
     return config;
@@ -28,7 +27,7 @@ axiosClient.interceptors.request.use(
 // Add a response interceptor
 axiosClient.interceptors.response.use(
   (response: any) => {
-    console.log("+++ response", response);
+    // console.log("+++ response", response);
 
     return {
       ...response?.data,
@@ -86,5 +85,5 @@ export const axiosHandler = (service: any) => {
     });
   });
 };
-
+// Update 1
 export default axiosClient;
