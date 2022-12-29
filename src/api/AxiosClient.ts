@@ -51,39 +51,39 @@ axiosClient.interceptors.response.use(
   }
 );
 
-export const axiosHandler = (service: any) => {
-  return new Promise<any>(async (resolve) => {
-    const response: AxiosResponse = await service();
+// export const axiosHandler = (service: any) => {
+//   return new Promise<any>(async (resolve) => {
+//     const response: AxiosResponse = await service();
 
-    const apiResponse = __get(response, "response", undefined);
-    const httpStatus = __get(response, "status", 500);
+//     const apiResponse = __get(response, "response", undefined);
+//     const httpStatus = __get(response, "status", 500);
 
-    // TODO: Change response status
-    if (apiResponse === "" || (response && response.status >= 500)) {
-      resolve({ isSuccess: false, isInternalServerError: true });
-    }
+//     // TODO: Change response status
+//     if (apiResponse === "" || (response && response.status >= 500)) {
+//       resolve({ isSuccess: false, isInternalServerError: true });
+//     }
 
-    const payload = __get(response, "data", null);
-    const status = __get(response, "statusText", null);
+//     const payload = __get(response, "data", null);
+//     const status = __get(response, "statusText", null);
 
-    const data = payload;
+//     const data = payload;
 
-    let message = null;
+//     let message = null;
 
-    const isSuccess = httpStatus === 200;
-    const isFailure = httpStatus !== 200;
+//     const isSuccess = httpStatus === 200;
+//     const isFailure = httpStatus !== 200;
 
-    resolve({
-      data,
-      status,
-      httpStatus,
-      message,
-      isSuccess,
-      isFailure,
-      response,
-      isInternalServerError: false,
-    });
-  });
-};
+//     resolve({
+//       data,
+//       status,
+//       httpStatus,
+//       message,
+//       isSuccess,
+//       isFailure,
+//       response,
+//       isInternalServerError: false,
+//     });
+//   });
+// };
 
-export default axiosClient;
+// export default axiosClient;
