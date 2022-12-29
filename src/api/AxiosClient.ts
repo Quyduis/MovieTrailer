@@ -76,7 +76,7 @@ export const axiosHandler = (service: any) => {
     resolve({
       data,
       status,
-      httpStatus,
+      // httpStatus,
       message,
       isSuccess,
       isFailure,
