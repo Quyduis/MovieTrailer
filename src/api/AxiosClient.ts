@@ -74,11 +74,11 @@ export const axiosHandler = (service: any) => {
     const isFailure = httpStatus !== 200;
 
     resolve({
-      data,
-      status,
-      httpStatus,
-      message,
-      isSuccess,
+      // data,
+      // status,
+      // httpStatus,
+      // message,
+      // isSuccess,
       isFailure,
       response,
       isInternalServerError: false,
