@@ -67,6 +67,16 @@ const ContentBackDrop = ({ movieDetail }: IProps) => {
     }
     return movieDetail?.production_countries[0]?.iso_3166_1 || "";
   };
+
+  const renderRuntime = () => {
+    if (movieDetail?.runtime) {
+      const hour = Math.trunc(movieDetail?.runtime / 60);
+      const minute = movieDetail?.runtime % 60;
+
+      return `${hour}h ${minute}m`;
+    }
+    return "0m";
+  };
   return (
     //   Movile Content
     <MobileContent>
@@ -116,7 +126,7 @@ const ContentBackDrop = ({ movieDetail }: IProps) => {
           </Text>
         </div>
       </div>
-
+      {/* Genre */}
       <div className="genre-container">
         <Certification />
         <Text className="content-text" size="tiny">
@@ -125,6 +135,15 @@ const ContentBackDrop = ({ movieDetail }: IProps) => {
           )} (${renderProductionCountry()})`}
         </Text>
         <div className="dot" />
+        <Text className="content-text" size="tiny">
+          {renderRuntime()}
+        </Text>
+      </div>
+      {/* Over View */}
+      <div className="over-view">
+        <Text className="content-text movie-title" size="medium" weight="bold">
+          Overview
+        </Text>
       </div>
     </MobileContent>
   );

@@ -52,6 +52,7 @@ export const MobileContent = styled.div`
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    padding: 0.25rem 0;
     & > * {
       z-index: 2;
       position: relative;
