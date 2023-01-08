@@ -92,6 +92,21 @@ export const MobileContent = styled.div`
     margin-top: 1rem;
     padding: 0 1rem;
   }
+
+  .core-team-container {
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+    ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 2%;
+      li {
+        flex: 0 1 48%;
+        margin-bottom: 1rem;
+      }
+    }
+  }
 `;
 
 export const MobileContentBackdrop = styled.div<ContentBackdropProps>`

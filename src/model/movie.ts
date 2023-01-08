@@ -103,3 +103,8 @@ export interface CreaditPerson {
   department: string;
   job: string;
 }
+
+export interface CoreTeam {
+  full_name: string;
+  jobs: string;
+}

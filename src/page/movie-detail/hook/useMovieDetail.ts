@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import DetailMovieApi from "api/DetaiMovieApi";
+import _groupby from "lodash/groupBy";
+import _isEmpty from "lodash/isEmpty";
+import { CoreTeam, MovieDetail } from "model/movie";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Constant from "util/Constants";
-import _isEmpty from "lodash/isEmpty";
-import { MovieDetail } from "model/movie";
 
 /**
  * Query get details of movie
@@ -78,11 +79,34 @@ const UseMovieDetail = () => {
     return "";
   };
 
+  const renderCoreTeam = () => {
+    const coreTeam =
+      movieDetailData?.credits?.crew?.filter(
+        (crew) => crew?.known_for_department === "Directing"
+      ) || [];
+    const coreTeamGroupById = _groupby(coreTeam, "id") || {};
+    console.log("+++ coreTeam", _groupby(coreTeam, "id"));
+    const coreTeamList: CoreTeam[] = [];
+
+    for (const [key, value] of Object.entries(coreTeamGroupById)) {
+      const fullName =
+        coreTeamGroupById[key]?.find((value) => value?.name)?.name || "";
+      const jobs = coreTeamGroupById[key]
+        ?.map((value) => value?.job)
+        ?.toString()?.replaceAll(',', ', ');
+      coreTeamList.push({ full_name: fullName, jobs });
+      console.log(`+++ ${key}: ${value}`);
+    }
+    console.log(`+++ coreTeamList`, coreTeamList);
+    return coreTeamList;
+  };
+
   return {
     movieDetailData,
     renderProductionCountry,
     renderRuntime,
     renderMovieCategory,
+    renderCoreTeam,
   };
 };
 

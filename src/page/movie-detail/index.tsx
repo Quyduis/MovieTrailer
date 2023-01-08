@@ -7,6 +7,7 @@ const MovieDetailPage = () => {
     renderMovieCategory,
     renderProductionCountry,
     renderRuntime,
+    renderCoreTeam,
   } = UseMovieDetail();
   return (
     <>
@@ -15,6 +16,7 @@ const MovieDetailPage = () => {
         renderMovieCategory={renderMovieCategory}
         renderProductionCountry={renderProductionCountry}
         renderRuntime={renderRuntime}
+        renderCoreTeam={renderCoreTeam}
       />
     </>
   );

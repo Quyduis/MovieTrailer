@@ -1,18 +1,17 @@
 import { Certification, CircleProgress, Text } from "component";
 import { FastAverageColor } from "fast-average-color";
-import { MovieDetail } from "model/movie";
+import { CoreTeam, MovieDetail } from "model/movie";
 import moment from "moment";
 import { useEffect, useMemo } from "react";
 import Constant from "util/Constants";
 import { MobileContent, MobileContentBackdrop } from "./styled";
-import _isEmpty from "lodash/isEmpty";
-import _groupby from "lodash/groupBy";
 
 interface IProps {
   movieDetail?: MovieDetail;
   renderProductionCountry: () => string;
   renderRuntime: () => string;
   renderMovieCategory: () => string;
+  renderCoreTeam: () => CoreTeam[];
 }
 
 const ContentBackDrop = ({
@@ -20,6 +19,7 @@ const ContentBackDrop = ({
   renderMovieCategory,
   renderProductionCountry,
   renderRuntime,
+  renderCoreTeam,
 }: IProps) => {
   console.log("+++ movieDetail", movieDetail?.credits?.crew);
 
@@ -61,11 +61,6 @@ const ContentBackDrop = ({
           // Do Something
         });
     }
-
-    const coreTeam = movieDetail?.credits?.crew?.filter(
-      (crew) => crew?.known_for_department === "Directing"
-    );
-    console.log("+++ coreTeam", _groupby(coreTeam, "id"));
   }, [movieDetail]);
 
   return (
@@ -146,6 +141,23 @@ const ContentBackDrop = ({
         <Text className="content-text" size="tiny">
           {movieDetail?.overview || ""}
         </Text>
+      </div>
+
+      <div className="core-team-container">
+        <ul>
+          {renderCoreTeam()?.map((coreTeam) => {
+            return (
+              <li>
+                <Text className="content-text" size="medium">
+                  {coreTeam?.full_name || ""}
+                </Text>
+                <Text className="content-text" size="tiny">
+                  {coreTeam?.jobs || ""}
+                </Text>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </MobileContent>
   );
