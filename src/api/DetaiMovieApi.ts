@@ -8,7 +8,7 @@ const DetailMovieApi = {
      * @returns 
      */
   getMovieDetailInfo(id?: number): Promise<MovieDetail> {
-    return axiosClient.get(`movie/${id}?append_to_response=videos`);
+    return axiosClient.get(`movie/${id}?append_to_response=videos,credits`);
   },
 };
 

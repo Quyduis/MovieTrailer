@@ -7,7 +7,7 @@ interface ContentBackdropProps {
 
 export const MobileContent = styled.div`
   background-color: var(--bg-content-backdrop);
-  height: 500px;
+  padding-bottom: 1.5rem;
   .content-text {
     color: var(--txt-backdrop);
   }
@@ -47,22 +47,32 @@ export const MobileContent = styled.div`
 
   .genre-container {
     position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.25rem 0;
-    & > * {
-      z-index: 2;
-      position: relative;
-    }
-    .dot {
+    padding: 0.75rem 0;
+    .info {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      & > * {
+        z-index: 2;
+        position: relative;
+      }
+      .dot {
         border-radius: 50%;
         width: 4px;
         height: 4px;
         background-color: var(--txt-backdrop);
         display: inline-block;
+      }
+    }
+
+    .category {
+      text-align: center;
+      & > * {
+        z-index: 2;
+        position: relative;
+      }
     }
   }
 
@@ -76,6 +86,11 @@ export const MobileContent = styled.div`
     background-color: var(--bg-content-backdrop);
     z-index: 1;
     content: "";
+  }
+
+  .overview-container {
+    margin-top: 1rem;
+    padding: 0 1rem;
   }
 `;
 

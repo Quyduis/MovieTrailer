@@ -35,6 +35,7 @@ export interface MovieDetail {
   vote_average: number;
   vote_count: number;
   videos: Video;
+  credits: Credit;
 }
 
 export interface BelongToCollection {
@@ -82,4 +83,23 @@ export interface VideoResult {
   official: boolean;
   published_at: string;
   id: string;
+}
+
+export interface Credit {
+  cast: CreaditPerson[];
+  crew: CreaditPerson[];
+}
+
+export interface CreaditPerson {
+  adult: boolean;
+  gender: number;
+  id: number;
+  known_for_department: string;
+  name: string;
+  original_name: string;
+  popularity: number;
+  profile_path: string;
+  credit_id: string;
+  department: string;
+  job: string;
 }

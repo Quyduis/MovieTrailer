@@ -6,13 +6,22 @@ import { useEffect, useMemo } from "react";
 import Constant from "util/Constants";
 import { MobileContent, MobileContentBackdrop } from "./styled";
 import _isEmpty from "lodash/isEmpty";
+import _groupby from "lodash/groupBy";
 
 interface IProps {
   movieDetail?: MovieDetail;
+  renderProductionCountry: () => string;
+  renderRuntime: () => string;
+  renderMovieCategory: () => string;
 }
 
-const ContentBackDrop = ({ movieDetail }: IProps) => {
-  console.log("+++ movieDetail", movieDetail);
+const ContentBackDrop = ({
+  movieDetail,
+  renderMovieCategory,
+  renderProductionCountry,
+  renderRuntime,
+}: IProps) => {
+  console.log("+++ movieDetail", movieDetail?.credits?.crew);
 
   const score: number = useMemo(() => {
     if (movieDetail?.vote_average) {
@@ -35,7 +44,7 @@ const ContentBackDrop = ({ movieDetail }: IProps) => {
           `https://image.tmdb.org/t/p/w220_and_h330_face${movieDetail.poster_path}`,
           {
             ignoredColor: [
-              [255, 255, 255, 255], // white
+              [255, 248, 220], // white
               [0, 0, 0, 255], // black
             ],
           }
@@ -52,33 +61,15 @@ const ContentBackDrop = ({ movieDetail }: IProps) => {
           // Do Something
         });
     }
+
+    const coreTeam = movieDetail?.credits?.crew?.filter(
+      (crew) => crew?.known_for_department === "Directing"
+    );
+    console.log("+++ coreTeam", _groupby(coreTeam, "id"));
   }, [movieDetail]);
 
-  /**
-   * Render production country
-   * @returns country
-   */
-  const renderProductionCountry = () => {
-    if (
-      _isEmpty(movieDetail?.production_countries) ||
-      !movieDetail?.production_countries
-    ) {
-      return "";
-    }
-    return movieDetail?.production_countries[0]?.iso_3166_1 || "";
-  };
-
-  const renderRuntime = () => {
-    if (movieDetail?.runtime) {
-      const hour = Math.trunc(movieDetail?.runtime / 60);
-      const minute = movieDetail?.runtime % 60;
-
-      return `${hour}h ${minute}m`;
-    }
-    return "0m";
-  };
   return (
-    //   Movile Content
+    // Movile Content (Small Screen)
     <MobileContent>
       {/* Backdrop Image */}
       <MobileContentBackdrop
@@ -128,21 +119,32 @@ const ContentBackDrop = ({ movieDetail }: IProps) => {
       </div>
       {/* Genre */}
       <div className="genre-container">
-        <Certification />
-        <Text className="content-text" size="tiny">
-          {`${moment(movieDetail?.release_date).format(
-            "DD/MM/YYYY"
-          )} (${renderProductionCountry()})`}
-        </Text>
-        <div className="dot" />
-        <Text className="content-text" size="tiny">
-          {renderRuntime()}
-        </Text>
+        <div className="info">
+          <Certification />
+          <Text className="content-text" size="tiny">
+            {`${moment(movieDetail?.release_date).format(
+              "DD/MM/YYYY"
+            )} (${renderProductionCountry()})`}
+          </Text>
+          <div className="dot" />
+          <Text className="content-text" size="tiny">
+            {renderRuntime()}
+          </Text>
+        </div>
+
+        <div className="category">
+          <Text className="content-text" size="tiny">
+            {renderMovieCategory()}
+          </Text>
+        </div>
       </div>
       {/* Over View */}
-      <div className="over-view">
+      <div className="overview-container">
         <Text className="content-text movie-title" size="medium" weight="bold">
           Overview
+        </Text>
+        <Text className="content-text" size="tiny">
+          {movieDetail?.overview || ""}
         </Text>
       </div>
     </MobileContent>
