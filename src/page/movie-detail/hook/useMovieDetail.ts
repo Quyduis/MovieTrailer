@@ -22,6 +22,8 @@ const useMovieDetailMovie = (queryKey: string[], id: number) =>
 const UseMovieDetail = () => {
   const state = useLocation().state as { movieId: number };
   const [movieDetailData, setMovieDetailData] = useState<MovieDetail>();
+  const [isShowModalPreviewTrailer, setShowPreviewTrailer] = useState(false);
+  const [previewKey, setPreviewKey] = useState("");
 
   // Call function query details of movie
   const movieDetailResponse = useMovieDetailMovie(
@@ -79,26 +81,45 @@ const UseMovieDetail = () => {
     return "";
   };
 
+  /**
+   * Render List Core Team
+   * @returns
+   */
   const renderCoreTeam = () => {
+    // Get person with directing role
     const coreTeam =
       movieDetailData?.credits?.crew?.filter(
         (crew) => crew?.known_for_department === "Directing"
       ) || [];
+    // Group by person
     const coreTeamGroupById = _groupby(coreTeam, "id") || {};
-    console.log("+++ coreTeam", _groupby(coreTeam, "id"));
     const coreTeamList: CoreTeam[] = [];
 
-    for (const [key, value] of Object.entries(coreTeamGroupById)) {
+    for (const [key, _value] of Object.entries(coreTeamGroupById)) {
       const fullName =
         coreTeamGroupById[key]?.find((value) => value?.name)?.name || "";
       const jobs = coreTeamGroupById[key]
         ?.map((value) => value?.job)
-        ?.toString()?.replaceAll(',', ', ');
+        ?.toString()
+        ?.replaceAll(",", ", ");
       coreTeamList.push({ full_name: fullName, jobs });
-      console.log(`+++ ${key}: ${value}`);
     }
-    console.log(`+++ coreTeamList`, coreTeamList);
     return coreTeamList;
+  };
+
+  const handleCloseModalPreviewTrailer = () => {
+    setShowPreviewTrailer(false);
+  };
+
+  const handleClickTrailer = () => {
+    const key =
+      movieDetailData?.videos?.results?.find(
+        (video) => video?.type === "Trailer"
+      )?.key || "";
+    if (key) {
+      setPreviewKey(key);
+      setShowPreviewTrailer(true);
+    }
   };
 
   return {
@@ -107,6 +128,11 @@ const UseMovieDetail = () => {
     renderRuntime,
     renderMovieCategory,
     renderCoreTeam,
+    isShowModalPreviewTrailer,
+    setShowPreviewTrailer,
+    handleCloseModalPreviewTrailer,
+    previewKey,
+    handleClickTrailer,
   };
 };
 

@@ -12,6 +12,7 @@ interface IProps {
   renderRuntime: () => string;
   renderMovieCategory: () => string;
   renderCoreTeam: () => CoreTeam[];
+  onClickTrailer: () => void
 }
 
 const ContentBackDrop = ({
@@ -20,6 +21,7 @@ const ContentBackDrop = ({
   renderProductionCountry,
   renderRuntime,
   renderCoreTeam,
+  onClickTrailer
 }: IProps) => {
   console.log("+++ movieDetail", movieDetail?.credits?.crew);
 
@@ -101,7 +103,7 @@ const ContentBackDrop = ({
           </Text>
         </div>
         {/* Trailer */}
-        <div className="second-header-child">
+        <div className="second-header-child" onClick={onClickTrailer}>
           <img
             className="icon-play"
             src={`${Constant.PUBLIC_URL}/assets/play_image.svg`}

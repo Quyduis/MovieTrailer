@@ -1,3 +1,4 @@
+import ModalPreviewTrailer from "component/modal/modal-preview-trailer";
 import ContentBackDrop from "./component/content-backdrop";
 import UseMovieDetail from "./hook/useMovieDetail";
 
@@ -8,6 +9,10 @@ const MovieDetailPage = () => {
     renderProductionCountry,
     renderRuntime,
     renderCoreTeam,
+    isShowModalPreviewTrailer,
+    handleCloseModalPreviewTrailer,
+    previewKey,
+    handleClickTrailer,
   } = UseMovieDetail();
   return (
     <>
@@ -17,6 +22,14 @@ const MovieDetailPage = () => {
         renderProductionCountry={renderProductionCountry}
         renderRuntime={renderRuntime}
         renderCoreTeam={renderCoreTeam}
+        onClickTrailer={handleClickTrailer}
+      />
+
+      {/* Modal top rated trailer */}
+      <ModalPreviewTrailer
+        keyMovie={previewKey}
+        visible={isShowModalPreviewTrailer}
+        onCloseModal={handleCloseModalPreviewTrailer}
       />
     </>
   );
