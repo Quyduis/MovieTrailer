@@ -36,6 +36,8 @@ export interface MovieDetail {
   vote_count: number;
   videos: Video;
   credits: Credit;
+  keywords: Keywords;
+  external_ids: ExternalId;
 }
 
 export interface BelongToCollection {
@@ -107,4 +109,21 @@ export interface CreaditPerson {
 export interface CoreTeam {
   full_name: string;
   jobs: string;
+}
+
+export interface Keywords {
+  keywords: KeywordsItem[];
+}
+
+export interface KeywordsItem {
+  id: number;
+  name: string;
+}
+
+export interface ExternalId {
+  facebook_id: string;
+  imdb_id: string;
+  instagram_id: string;
+  twitter_id: string;
+  wikidata_id: string;
 }

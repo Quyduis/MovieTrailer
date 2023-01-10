@@ -7,6 +7,7 @@ export const FooterWrapper = styled.div`
   gap: 2rem;
   padding: 1.5rem;
   background-color: var(--bg-main);
+  margin-top: 1rem;
   cursor: pointer;
   .footer-icon {
     display: none;
