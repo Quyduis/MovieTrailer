@@ -2,6 +2,7 @@ import ModalPreviewTrailer from "component/modal/modal-preview-trailer";
 import ContentBackDrop from "./component/content-backdrop";
 import Keywords from "./component/keywords";
 import Socials from "./component/socials";
+import Status from "./component/status";
 import UseMovieDetail from "./hook/useMovieDetail";
 
 const MovieDetailPage = () => {
@@ -29,8 +30,11 @@ const MovieDetailPage = () => {
       />
 
       {/* Socials */}
-      <Socials movieDetail={movieDetailData}/>
-      
+      <Socials movieDetail={movieDetailData} />
+
+      {/* Status */}
+      <Status movieDetail={movieDetailData} />
+
       {/* Keywords */}
       <Keywords keyWords={movieDetailData?.keywords?.keywords || []} />
 
