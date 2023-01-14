@@ -9,6 +9,7 @@
   --light-green: rgba(30, 213, 169);
   --linear-gradient-light: linear-gradient(to right, #c0fecf 0%, #1ed5a9 100%);
   --dark-blue: rgba(3, 37, 65);
+  --light-gray: #d7d7d7;
   --linear-gradient-dark: linear-gradient(
     to right,
     rgba(3, 37, 65, 0.8) 0%,

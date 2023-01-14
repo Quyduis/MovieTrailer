@@ -1,6 +1,7 @@
 import ModalPreviewTrailer from "component/modal/modal-preview-trailer";
 import ContentBackDrop from "./component/content-backdrop";
 import Keywords from "./component/keywords";
+import Socials from "./component/socials";
 import UseMovieDetail from "./hook/useMovieDetail";
 
 const MovieDetailPage = () => {
@@ -17,6 +18,7 @@ const MovieDetailPage = () => {
   } = UseMovieDetail();
   return (
     <>
+      {/* Content Backdrop */}
       <ContentBackDrop
         movieDetail={movieDetailData}
         renderMovieCategory={renderMovieCategory}
@@ -26,9 +28,13 @@ const MovieDetailPage = () => {
         onClickTrailer={handleClickTrailer}
       />
 
+      {/* Socials */}
+      <Socials movieDetail={movieDetailData}/>
+      
+      {/* Keywords */}
       <Keywords keyWords={movieDetailData?.keywords?.keywords || []} />
 
-      {/* Modal top rated trailer */}
+      {/* Modal trailer */}
       <ModalPreviewTrailer
         keyMovie={previewKey}
         visible={isShowModalPreviewTrailer}
