@@ -1,47 +1,47 @@
 import { DeviceSize } from "./DeviceSize";
 
-interface IConstants {
-  PUBLIC_URL: string;
-  MAIN_COLOR: string;
-  ACCESS_TOKEN: string;
-  IMAGE_PATH_ORIGINAL: string;
-  IMAGE_PATH_W500: string;
-  IMAGE_PATH_W220: string;
-  IMAGE_PATH_W1920_H427: string;
-  IMAGE_PATH_W710_H400: string;
-  IMAGE_PATH_W600_H900_BEST_V2: string;
-  IMAGE_PATH_W1000_h450: string;
-  STYLED: {
-    BORDER_RADIUS_POSTER: string;
-    COLOR_GRAY: string;
-  };
-  QUERY_KEY: {
-    HOME: {
-      TRENDING_TODAY: string[];
-      MOVIE_POPULAR: string[];
-      MOVIE_TOP_RATED: string[];
-      MOVIE_TOP_RATED_PREVIEW: string[];
-    };
-    DETAIL: {
-      MOVIE: string[];
-    };
-  };
-  DATE_FORMAT: string;
-  SCREEN: {
-    SMALL: string;
-    MEDIUM: string;
-    LARGE: string;
-  };
-  MEDIA_TYPE: {
-    POPULAR: string;
-    TOP_RATED: string;
-    TRENDING: string;
-  };
-  TOGGLE_LEFT: string;
-  TOGGLE_RIGHT: string;
-}
+// interface IConstants {
+//   PUBLIC_URL: string;
+//   MAIN_COLOR: string;
+//   ACCESS_TOKEN: string;
+//   IMAGE_PATH_ORIGINAL: string;
+//   IMAGE_PATH_W500: string;
+//   IMAGE_PATH_W220: string;
+//   IMAGE_PATH_W1920_H427: string;
+//   IMAGE_PATH_W710_H400: string;
+//   IMAGE_PATH_W600_H900_BEST_V2: string;
+//   IMAGE_PATH_W1000_h450: string;
+//   STYLED: {
+//     BORDER_RADIUS_POSTER: string;
+//     COLOR_GRAY: string;
+//   };
+//   QUERY_KEY: {
+//     HOME: {
+//       TRENDING_TODAY: string[];
+//       MOVIE_POPULAR: string[];
+//       MOVIE_TOP_RATED: string[];
+//       MOVIE_TOP_RATED_PREVIEW: string[];
+//     };
+//     DETAIL: {
+//       MOVIE: string[];
+//     };
+//   };
+//   DATE_FORMAT: string;
+//   SCREEN: {
+//     SMALL: string;
+//     MEDIUM: string;
+//     LARGE: string;
+//   };
+//   MEDIA_TYPE: {
+//     POPULAR: string;
+//     TOP_RATED: string;
+//     TRENDING: string;
+//   };
+//   TOGGLE_LEFT: string;
+//   TOGGLE_RIGHT: string;
+// }
 
-const Constant: IConstants = {
+const Constant = {
   PUBLIC_URL: process.env.PUBLIC_URL,
   MAIN_COLOR: "#032541",
   ACCESS_TOKEN:
@@ -56,6 +56,7 @@ const Constant: IConstants = {
   IMAGE_PATH_W600_H900_BEST_V2:
     "https://www.themoviedb.org/t/p/w600_and_h900_bestv2",
   IMAGE_PATH_W1000_h450: "https://image.tmdb.org/t/p/w1000_and_h450_multi_faces",
+  IMAGE_PATH_W240_h266_FACE: "https://www.themoviedb.org/t/p/w240_and_h266_face",
   STYLED: {
     BORDER_RADIUS_POSTER: "8px",
     COLOR_GRAY: "rgba(0,0,0,0.6)",

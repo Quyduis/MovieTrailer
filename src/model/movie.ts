@@ -104,6 +104,7 @@ export interface CreaditPerson {
   credit_id: string;
   department: string;
   job: string;
+  character?: string;
 }
 
 export interface CoreTeam {
