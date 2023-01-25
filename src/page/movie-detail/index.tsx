@@ -19,6 +19,7 @@ const MovieDetailPage = () => {
     handleCloseModalPreviewTrailer,
     previewKey,
     handleClickTrailer,
+    isShowViewMoreCast,
   } = UseMovieDetail();
 
   const renderTopBilledCast = () => {
@@ -47,7 +48,9 @@ const MovieDetailPage = () => {
       />
 
       {/* Top Billed Cast */}
-      <TopBilledCast>{renderTopBilledCast()}</TopBilledCast>
+      <TopBilledCast isShowViewMore={isShowViewMoreCast}>
+        {renderTopBilledCast()}
+      </TopBilledCast>
 
       {/* Socials */}
       <Socials movieDetail={movieDetailData} />

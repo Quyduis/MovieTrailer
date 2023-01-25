@@ -22,4 +22,12 @@ export const TopBilledCastContainer = styled.div`
         padding: 0.25rem 0.5rem;
     }
   }
+  .view-more {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .content-text {
+       min-width: 5.5rem;
+    }
+  }
 `;

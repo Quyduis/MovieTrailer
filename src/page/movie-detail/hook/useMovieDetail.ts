@@ -23,6 +23,7 @@ const UseMovieDetail = () => {
   const state = useLocation().state as { movieId: number };
   const [movieDetailData, setMovieDetailData] = useState<MovieDetail>();
   const [isShowModalPreviewTrailer, setShowPreviewTrailer] = useState(false);
+  const [isShowViewMoreCast, setShowViewMoreCast] = useState(false);
   const [previewKey, setPreviewKey] = useState("");
 
   // Call function query details of movie
@@ -34,6 +35,9 @@ const UseMovieDetail = () => {
   useEffect(() => {
     if (movieDetailResponse?.data) {
       setMovieDetailData(movieDetailResponse?.data);
+      setShowViewMoreCast(
+        movieDetailResponse?.data?.credits?.cast?.length > 10
+      );
     }
   }, [movieDetailResponse?.data]);
 
@@ -133,6 +137,7 @@ const UseMovieDetail = () => {
     handleCloseModalPreviewTrailer,
     previewKey,
     handleClickTrailer,
+    isShowViewMoreCast
   };
 };
 
