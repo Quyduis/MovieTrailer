@@ -10,6 +10,7 @@ export const MobileActionsContainer = styled.div`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    backdrop-filter: blur(1.25rem);
     .item {
         color: white;
         font-size: 1rem;
