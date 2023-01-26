@@ -3,6 +3,7 @@ import ModalPreviewTrailer from "component/modal/modal-preview-trailer";
 import _isEmpty from "lodash/isEmpty";
 import ContentBackDrop from "./component/content-backdrop";
 import Keywords from "./component/keywords";
+import MobileActions from "./component/mobile-actions";
 import Socials from "./component/socials";
 import Status from "./component/status";
 import TopBilledCast from "./component/top-billed-cast";
@@ -71,6 +72,8 @@ const MovieDetailPage = () => {
         visible={isShowModalPreviewTrailer}
         onCloseModal={handleCloseModalPreviewTrailer}
       />
+      {/* Mobile Actions */}
+      <MobileActions />
     </>
   );
 };

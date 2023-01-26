@@ -17,6 +17,7 @@
   );
   --bg-content-backdrop: #ffffff;
   --txt-backdrop: #000000;
+  --tmdbDarkBlue: 3,37,65;
 
 }
 .container {
