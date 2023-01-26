@@ -1,3 +1,4 @@
+import { Skeleton } from "antd";
 import { Certification, CircleProgress, Text } from "component";
 import { FastAverageColor } from "fast-average-color";
 import { CoreTeam, MovieDetail } from "model/movie";
@@ -12,7 +13,7 @@ interface IProps {
   renderRuntime: () => string;
   renderMovieCategory: () => string;
   renderCoreTeam: () => CoreTeam[];
-  onClickTrailer: () => void
+  onClickTrailer: () => void;
 }
 
 const ContentBackDrop = ({
@@ -21,7 +22,7 @@ const ContentBackDrop = ({
   renderProductionCountry,
   renderRuntime,
   renderCoreTeam,
-  onClickTrailer
+  onClickTrailer,
 }: IProps) => {
   console.log("+++ movieDetail", movieDetail?.credits?.crew);
 
@@ -74,18 +75,21 @@ const ContentBackDrop = ({
       >
         <div className="backdrop-gradient">
           {/* Backdrop Poster */}
-          <img
-            className="backdrop-poster"
-            src={`${Constant.IMAGE_PATH_W220}${movieDetail?.poster_path}`}
-            alt="poster"
-          />
+          {!movieDetail?.poster_path && <Skeleton.Image />}
+          {movieDetail?.poster_path && (
+            <img
+              className="backdrop-poster"
+              src={`${Constant.IMAGE_PATH_W220}${movieDetail?.poster_path}`}
+              alt="poster"
+            />
+          )}
         </div>
       </MobileContentBackdrop>
 
       <div className="movie-title-container">
         {/* Movie Title */}
         <Text className="content-text movie-title" size="medium" weight="bold">
-          {`${movieDetail?.title}`}
+          {`${movieDetail?.title || ""}`}
         </Text>
 
         {/* Movie Release Year */}

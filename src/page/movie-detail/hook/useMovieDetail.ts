@@ -137,7 +137,8 @@ const UseMovieDetail = () => {
     handleCloseModalPreviewTrailer,
     previewKey,
     handleClickTrailer,
-    isShowViewMoreCast
+    isShowViewMoreCast,
+    isLoadingMovieDetailData: movieDetailResponse?.isLoading
   };
 };
 

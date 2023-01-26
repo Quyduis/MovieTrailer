@@ -1,4 +1,6 @@
+import LoadingSpin from "component/loading-spin";
 import ModalPreviewTrailer from "component/modal/modal-preview-trailer";
+import _isEmpty from "lodash/isEmpty";
 import ContentBackDrop from "./component/content-backdrop";
 import Keywords from "./component/keywords";
 import Socials from "./component/socials";
@@ -6,7 +8,6 @@ import Status from "./component/status";
 import TopBilledCast from "./component/top-billed-cast";
 import TopBilledCastItem from "./component/top-billed-cast/top-billed-cast-item";
 import UseMovieDetail from "./hook/useMovieDetail";
-import _isEmpty from "lodash/isEmpty";
 
 const MovieDetailPage = () => {
   const {
@@ -20,6 +21,7 @@ const MovieDetailPage = () => {
     previewKey,
     handleClickTrailer,
     isShowViewMoreCast,
+    isLoadingMovieDetailData,
   } = UseMovieDetail();
 
   const renderTopBilledCast = () => {
@@ -37,29 +39,31 @@ const MovieDetailPage = () => {
 
   return (
     <>
-      {/* Content Backdrop */}
-      <ContentBackDrop
-        movieDetail={movieDetailData}
-        renderMovieCategory={renderMovieCategory}
-        renderProductionCountry={renderProductionCountry}
-        renderRuntime={renderRuntime}
-        renderCoreTeam={renderCoreTeam}
-        onClickTrailer={handleClickTrailer}
-      />
+      <LoadingSpin spinning={isLoadingMovieDetailData}>
+        {/* Content Backdrop */}
+        <ContentBackDrop
+          movieDetail={movieDetailData}
+          renderMovieCategory={renderMovieCategory}
+          renderProductionCountry={renderProductionCountry}
+          renderRuntime={renderRuntime}
+          renderCoreTeam={renderCoreTeam}
+          onClickTrailer={handleClickTrailer}
+        />
 
-      {/* Top Billed Cast */}
-      <TopBilledCast isShowViewMore={isShowViewMoreCast}>
-        {renderTopBilledCast()}
-      </TopBilledCast>
+        {/* Top Billed Cast */}
+        <TopBilledCast isShowViewMore={isShowViewMoreCast}>
+          {renderTopBilledCast()}
+        </TopBilledCast>
 
-      {/* Socials */}
-      <Socials movieDetail={movieDetailData} />
+        {/* Socials */}
+        <Socials movieDetail={movieDetailData} />
 
-      {/* Status */}
-      <Status movieDetail={movieDetailData} />
+        {/* Status */}
+        <Status movieDetail={movieDetailData} />
 
-      {/* Keywords */}
-      <Keywords keyWords={movieDetailData?.keywords?.keywords || []} />
+        {/* Keywords */}
+        <Keywords keyWords={movieDetailData?.keywords?.keywords || []} />
+      </LoadingSpin>
 
       {/* Modal trailer */}
       <ModalPreviewTrailer
