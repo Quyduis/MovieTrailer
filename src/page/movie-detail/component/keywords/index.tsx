@@ -14,7 +14,7 @@ const Keywords = ({ keyWords }: Iprops) => {
         Keywords
       </Text>
         {keyWords?.map((item) => (
-          <div className="item">
+          <div key={item.id} className="item">
             <Text className="content-text" size="tiny">
               {item?.name}
             </Text>

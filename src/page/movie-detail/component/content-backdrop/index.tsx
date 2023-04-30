@@ -24,7 +24,7 @@ const ContentBackDrop = ({
   renderCoreTeam,
   onClickTrailer,
 }: IProps) => {
-  console.log("+++ movieDetail", movieDetail?.credits?.crew);
+  // console.log("+++ movieDetail", movieDetail?.credits?.crew);
 
   const score: number = useMemo(() => {
     if (movieDetail?.vote_average) {
@@ -151,9 +151,9 @@ const ContentBackDrop = ({
 
       <div className="core-team-container">
         <ul>
-          {renderCoreTeam()?.map((coreTeam) => {
+          {renderCoreTeam()?.map((coreTeam, index) => {
             return (
-              <li>
+              <li key={coreTeam.full_name + index}>
                 <Text className="content-text" size="medium">
                   {coreTeam?.full_name || ""}
                 </Text>

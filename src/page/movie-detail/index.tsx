@@ -31,9 +31,9 @@ const MovieDetailPage = () => {
       if (listCast?.length >= 10) {
         return listCast
           ?.slice(0, 9)
-          ?.map((item) => <TopBilledCastItem item={item} />);
+          ?.map((item) => <TopBilledCastItem key={item.id} item={item} />);
       }
-      return listCast?.map((item) => <TopBilledCastItem item={item} />);
+      return listCast?.map((item) => <TopBilledCastItem key={item.id} item={item} />);
     }
     return <></>;
   };
