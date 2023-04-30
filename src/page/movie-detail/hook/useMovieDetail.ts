@@ -42,10 +42,10 @@ const UseMovieDetail = () => {
   }, [movieDetailResponse?.data]);
 
   /**
-   * Render production country
+   * Get production country
    * @returns country
    */
-  const renderProductionCountry = () => {
+  const getProductionCountry = () => {
     if (
       _isEmpty(movieDetailData?.production_countries) ||
       !movieDetailData?.production_countries
@@ -56,10 +56,10 @@ const UseMovieDetail = () => {
   };
 
   /**
-   * Render movie runtime
-   * @returns
+   * Get movie runtime
+   * @returns runtime movie
    */
-  const renderRuntime = () => {
+  const getRuntime = () => {
     if (movieDetailData?.runtime) {
       const hour = Math.trunc(movieDetailData?.runtime / 60);
       const minute = movieDetailData?.runtime % 60;
@@ -70,10 +70,10 @@ const UseMovieDetail = () => {
   };
 
   /**
-   * Render movie category
+   * Get movie category
    * @returns
    */
-  const renderMovieCategory = () => {
+  const getMovieCategory = () => {
     if (movieDetailData?.genres && !_isEmpty(movieDetailData?.genres)) {
       const category =
         movieDetailData?.genres
@@ -86,10 +86,10 @@ const UseMovieDetail = () => {
   };
 
   /**
-   * Render List Core Team
+   * Get List Core Team
    * @returns
    */
-  const renderCoreTeam = () => {
+  const getCoreTeam = () => {
     // Get person with directing role
     const coreTeam =
       movieDetailData?.credits?.crew?.filter(
@@ -128,10 +128,10 @@ const UseMovieDetail = () => {
 
   return {
     movieDetailData,
-    renderProductionCountry,
-    renderRuntime,
-    renderMovieCategory,
-    renderCoreTeam,
+    getProductionCountry,
+    getRuntime,
+    getMovieCategory,
+    getCoreTeam,
     isShowModalPreviewTrailer,
     setShowPreviewTrailer,
     handleCloseModalPreviewTrailer,

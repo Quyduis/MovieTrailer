@@ -9,19 +9,19 @@ import { MobileContent, MobileContentBackdrop } from "./styled";
 
 interface IProps {
   movieDetail?: MovieDetail;
-  renderProductionCountry: () => string;
-  renderRuntime: () => string;
-  renderMovieCategory: () => string;
-  renderCoreTeam: () => CoreTeam[];
+  getProductionCountry: () => string;
+  getRuntime: () => string;
+  getMovieCategory: () => string;
+  getCoreTeam: () => CoreTeam[];
   onClickTrailer: () => void;
 }
 
 const ContentBackDrop = ({
   movieDetail,
-  renderMovieCategory,
-  renderProductionCountry,
-  renderRuntime,
-  renderCoreTeam,
+  getMovieCategory,
+  getProductionCountry,
+  getRuntime,
+  getCoreTeam,
   onClickTrailer,
 }: IProps) => {
   // console.log("+++ movieDetail", movieDetail?.credits?.crew);
@@ -125,17 +125,17 @@ const ContentBackDrop = ({
           <Text className="content-text" size="tiny">
             {`${moment(movieDetail?.release_date).format(
               "DD/MM/YYYY"
-            )} (${renderProductionCountry()})`}
+            )} (${getProductionCountry()})`}
           </Text>
           <div className="dot" />
           <Text className="content-text" size="tiny">
-            {renderRuntime()}
+            {getRuntime()}
           </Text>
         </div>
 
         <div className="category">
           <Text className="content-text" size="tiny">
-            {renderMovieCategory()}
+            {getMovieCategory()}
           </Text>
         </div>
       </div>
@@ -151,7 +151,7 @@ const ContentBackDrop = ({
 
       <div className="core-team-container">
         <ul>
-          {renderCoreTeam()?.map((coreTeam, index) => {
+          {getCoreTeam()?.map((coreTeam, index) => {
             return (
               <li key={coreTeam.full_name + index}>
                 <Text className="content-text" size="medium">

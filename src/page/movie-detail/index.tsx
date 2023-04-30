@@ -13,10 +13,10 @@ import UseMovieDetail from "./hook/useMovieDetail";
 const MovieDetailPage = () => {
   const {
     movieDetailData,
-    renderMovieCategory,
-    renderProductionCountry,
-    renderRuntime,
-    renderCoreTeam,
+    getMovieCategory,
+    getProductionCountry,
+    getRuntime,
+    getCoreTeam,
     isShowModalPreviewTrailer,
     handleCloseModalPreviewTrailer,
     previewKey,
@@ -24,7 +24,10 @@ const MovieDetailPage = () => {
     isShowViewMoreCast,
     isLoadingMovieDetailData,
   } = UseMovieDetail();
-
+  /**
+   * Render item top billed cast
+   * @returns item top billed cast
+   */
   const renderTopBilledCast = () => {
     const listCast = movieDetailData?.credits?.cast;
     if (listCast && !_isEmpty(listCast)) {
@@ -33,7 +36,9 @@ const MovieDetailPage = () => {
           ?.slice(0, 9)
           ?.map((item) => <TopBilledCastItem key={item.id} item={item} />);
       }
-      return listCast?.map((item) => <TopBilledCastItem key={item.id} item={item} />);
+      return listCast?.map((item) => (
+        <TopBilledCastItem key={item.id} item={item} />
+      ));
     }
     return <></>;
   };
@@ -44,10 +49,10 @@ const MovieDetailPage = () => {
         {/* Content Backdrop */}
         <ContentBackDrop
           movieDetail={movieDetailData}
-          renderMovieCategory={renderMovieCategory}
-          renderProductionCountry={renderProductionCountry}
-          renderRuntime={renderRuntime}
-          renderCoreTeam={renderCoreTeam}
+          getMovieCategory={getMovieCategory}
+          getProductionCountry={getProductionCountry}
+          getRuntime={getRuntime}
+          getCoreTeam={getCoreTeam}
           onClickTrailer={handleClickTrailer}
         />
 

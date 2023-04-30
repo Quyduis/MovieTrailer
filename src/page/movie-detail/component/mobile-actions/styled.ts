@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Constant from "util/Constants";
 
 export const MobileActionsContainer = styled.div`
     padding: 1rem;
@@ -16,4 +17,8 @@ export const MobileActionsContainer = styled.div`
         font-size: 1rem;
         max-height: 1rem;
     }
+
+    @media ${Constant.SCREEN.LARGE} {
+    display: none;
+  }
 `
