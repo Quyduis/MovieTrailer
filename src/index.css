@@ -5,7 +5,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-  --bg-main: #032541;
+  font-size: 10px;
+  /* background: rgb(13, 13, 13);
+  background: linear-gradient(
+    140deg,
+    rgba(13, 13, 13, 1) 23%,
+    rgba(42, 30, 39, 1) 49%,
+    rgba(81, 64, 83, 1) 71%,
+    rgba(29, 39, 33, 1) 85%
+  ); */
+  --bg-main: #131723;
+  --bg-input: #2d3c59;
+  --el-main: #b4d42a;
+  --txt-main: #b9b9b9;
   --light-green: rgba(30, 213, 169);
   --linear-gradient-light: linear-gradient(to right, #c0fecf 0%, #1ed5a9 100%);
   --dark-blue: rgba(3, 37, 65);
@@ -17,8 +29,8 @@
   );
   --bg-content-backdrop: #ffffff;
   --txt-backdrop: #000000;
-  --tmdbDarkBlue: 3,37,65;
-
+  --tmdbDarkBlue: 3, 37, 65;
+  --shadow-input: 0px 0px 0px 3px rgba(45, 60, 89, 0.5);
 }
 .container {
   padding-left: 10%;
@@ -38,6 +50,7 @@ body {
   font-family: Rubik, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-main);
 }
 
 code {
@@ -45,15 +58,72 @@ code {
     monospace;
 }
 
-body:has(.ant-modal-mask) .container{
+body:has(.ant-modal-mask) .container {
   filter: grayscale(100%);
 }
 
-body:has(.ant-modal-mask) .app-header{
+body:has(.ant-modal-mask) .app-header {
   filter: grayscale(100%);
 }
 
-body:has(.ant-modal-mask) .app-footer{
+body:has(.ant-modal-mask) .app-footer {
   filter: grayscale(100%);
 }
 
+/* CSS New Layout */
+
+.block-header {
+  /* background-color: red; */
+  min-height: 8rem;
+  display: flex;
+  padding: 0 2rem;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  /* width: 100vw; */
+}
+
+.block-header__logo {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  min-width: 21rem;
+}
+
+.block-header__text-green { 
+  color: var(--el-main);
+  display: inline-block;
+  font-weight: 900;
+  font-size: 2rem;
+  /* padding-top: 1.5rem; */
+  white-space: nowrap;
+}
+
+.block-header__search {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 70rem;
+  min-width: 20rem;
+}
+
+
+.block-main {
+  display: flex;
+  flex-direction: row;
+  min-height: calc(100vh - 8rem);
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.block-main__left {
+  /* background-color: blue; */
+  min-width: 15%;
+  height: inherit;
+}
+
+.block-main__right {
+  /* background-color: violet; */
+  min-width: 85%;
+  height: inherit;
+}

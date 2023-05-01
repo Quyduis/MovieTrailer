@@ -18,7 +18,7 @@ export const TextStyled = styled.p<TextProps>`
         `;
       default:
         return css`
-          font-weight: 500;
+          font-weight: 0;
         `;
     }
   }};
