@@ -50,7 +50,9 @@ body {
   font-family: Rubik, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--bg-main);
+  /* background-color: var(--bg-main); */
+  background: rgb(13,13,13);
+background: linear-gradient(170deg, rgba(13,13,13,1) 11%, rgba(30,40,66,1) 27%, rgba(81,62,81,1) 73%, rgba(41,76,62,1) 100%);
 }
 
 code {
