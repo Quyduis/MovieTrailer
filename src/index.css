@@ -15,7 +15,7 @@
     rgba(29, 39, 33, 1) 85%
   ); */
   --bg-main: #131723;
-  --bg-input: #2d3c59;
+  --bg-input: #2d3c597a;
   --el-main: #b4d42a;
   --txt-main: #b9b9b9;
   --light-green: rgba(30, 213, 169);
@@ -31,6 +31,7 @@
   --txt-backdrop: #000000;
   --tmdbDarkBlue: 3, 37, 65;
   --shadow-input: 0px 0px 0px 3px rgba(45, 60, 89, 0.5);
+  --border-main: 1px solid #ffffff21;
 }
 .container {
   padding-left: 10%;

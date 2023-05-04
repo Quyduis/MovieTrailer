@@ -4,9 +4,9 @@ import styled from "styled-components";
 export const InputStyled = styled(Input)`
   border-radius: 2rem;
   background-color: var(--bg-input);
-  border: none;
-  box-shadow: var(--shadow-input);
-  -webkit-box-shadow: var(--shadow-input);
+  border: var(--border-main);
+  /* box-shadow: var(--shadow-input);
+  -webkit-box-shadow: var(--shadow-input); */
   align-self: center;
   color: var(--txt-main);
 
