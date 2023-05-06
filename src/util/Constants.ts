@@ -85,6 +85,12 @@ const Constant = {
   },
   TOGGLE_LEFT: "toggle-left",
   TOGGLE_RIGHT: "toggle-right",
+
+  PATH: {
+    HOME: "/",
+    FAVORITE: "/favorite",
+    REMIND: "/remind",
+  }
 };
 
 export default Constant;

@@ -1,4 +1,4 @@
-import { HomeSaga } from "page/home/home-saga";
+import { HomeSaga } from "page/home_old/home-saga";
 import { all } from "redux-saga/effects";
 
 

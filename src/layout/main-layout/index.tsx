@@ -2,7 +2,7 @@ import MovieDetailPage from "page/movie-detail";
 import { useEffect } from "react";
 import { useRef } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import HomePage from "../../page/home";
+import HomePage from "../../page/home_old";
 import LeaderBoardPage from "../../page/leader-board";
 import Footer from "./footer";
 import Header from "./header";

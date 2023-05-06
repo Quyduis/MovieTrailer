@@ -123,10 +123,16 @@ body:has(.ant-modal-mask) .app-footer {
   /* background-color: blue; */
   min-width: 15%;
   height: inherit;
+  display: flex;
+  flex-direction: column;
 }
 
 .block-main__right {
   /* background-color: violet; */
   min-width: 85%;
   height: inherit;
+}
+
+.small-icon {
+  max-width: 2rem;
 }
