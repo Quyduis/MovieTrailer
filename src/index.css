@@ -32,6 +32,8 @@
   --tmdbDarkBlue: 3, 37, 65;
   --shadow-input: 0px 0px 0px 3px rgba(45, 60, 89, 0.5);
   --border-main: 1px solid #ffffff21;
+  min-height: 100vh;
+  overflow-y: auto;
 }
 .container {
   padding-left: 10%;
@@ -52,8 +54,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-color: var(--bg-main); */
-  background: rgb(13,13,13);
-background: linear-gradient(170deg, rgba(13,13,13,1) 11%, rgba(30,40,66,1) 27%, rgba(81,62,81,1) 73%, rgba(41,76,62,1) 100%);
+  background: rgb(13, 13, 13);
+  background: linear-gradient(
+    170deg,
+    rgba(13, 13, 13, 1) 11%,
+    rgba(30, 40, 66, 1) 27%,
+    rgba(81, 62, 81, 1) 73%,
+    rgba(41, 76, 62, 1) 100%
+  );
+  min-height: 100vh;
+  overflow-y: auto;
 }
 
 code {
@@ -94,7 +104,7 @@ body:has(.ant-modal-mask) .app-footer {
   min-width: 21rem;
 }
 
-.block-header__text-green { 
+.block-header__text-green {
   color: var(--el-main);
   display: inline-block;
   font-weight: 900;
@@ -109,7 +119,6 @@ body:has(.ant-modal-mask) .app-footer {
   max-width: 70rem;
   min-width: 20rem;
 }
-
 
 .block-main {
   display: flex;

@@ -27,11 +27,11 @@ axiosClient.interceptors.request.use(
 // Add a response interceptor
 axiosClient.interceptors.response.use(
   (response: any) => {
-    // console.log("+++ response", response);
+    console.log("+++ response", response);
 
     return {
       ...response?.data,
-      status: response?.data?.status,
+      status: response?.status,
     };
   },
   (error: any) => {
