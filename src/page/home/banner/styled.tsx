@@ -6,4 +6,6 @@ export const BannerStyled = styled.div<any>`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 50%;
+  border-radius: 2rem;
 `;
