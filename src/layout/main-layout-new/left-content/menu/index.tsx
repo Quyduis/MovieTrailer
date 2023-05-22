@@ -9,7 +9,6 @@ const LeftMenu = () => {
   const location = useLocation();
 
   useEffect(() => {
-    console.log("+++ location", location.pathname);
   }, [location.pathname]);
   return (
     <MenuStyled className="mt-[2rem]">

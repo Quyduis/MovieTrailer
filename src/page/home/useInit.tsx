@@ -19,25 +19,40 @@ interface IMediaType {
 const useMovieTrendingQuery = (queryKey: string[], type: string) =>
   useQuery([...queryKey, type], () => HomeApi.getListMovieTrending(type));
 
+/**
+ * Query get list movie popular
+ * @param queryKey
+ * @returns Query
+ */
+const useMoviePopularQuery = (queryKey: string[], type: string) =>
+  useQuery([...queryKey, type], () => HomeApi.getListMoviePopuplar(type));
+
 const UseInit = () => {
   const [bannerMovieTrending, setBannerMovieTrending] = useState<Movie>();
+  const [listMoviePopular, setListMoviePopular] = useState<Movie[]>([]);
   const [mediaType, setMediaType] = useState<IMediaType>({
     popularType: "movie",
     topRatedType: "movie",
     trendingType: "day",
   });
 
-  // Call function query list movie trending week
+  // Call hook query list movie trending week
   const movieTrendingResponse = useMovieTrendingQuery(
     Constant.QUERY_KEY.HOME.TRENDING_TODAY,
     mediaType.trendingType
   );
 
+  // Call hook query list movie popular
+  const moviePopularResponse = useMoviePopularQuery(
+    Constant.QUERY_KEY.HOME.MOVIE_POPULAR,
+    mediaType.popularType
+  );
+  
+
   /**
    * Get Image banner
    */
   useEffect(() => {
-    
     const listMovieTrending = movieTrendingResponse?.data?.results;
     // Get random banner image from  list movie trending
     if (Array.isArray(listMovieTrending) && !_isEmpty(listMovieTrending)) {
@@ -49,8 +64,15 @@ const UseInit = () => {
     }
   }, [movieTrendingResponse?.data?.results]);
 
+  useEffect(() => {
+    if(moviePopularResponse.data?.results) {
+      setListMoviePopular(moviePopularResponse.data.results)
+    }
+  }, [moviePopularResponse?.data?.results])
+
   return {
     bannerMovieTrending,
+    listMoviePopular
   };
 };
 

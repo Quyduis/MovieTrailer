@@ -8,4 +8,11 @@ export const BannerStyled = styled.div<any>`
   background-size: cover;
   height: 50%;
   border-radius: 2rem;
+  position: relative;
+
+    #btnPlayTrailer {
+        position: absolute;
+        bottom: 3rem;
+        left: 2rem;
+    }
 `;
