@@ -31,7 +31,7 @@ export const TextStyled = styled.p<TextProps>`
 
       case "medium":
         return css`
-          font-size: 1rem;
+          font-size: 1.2rem;
         `;
 
       case "tiny":

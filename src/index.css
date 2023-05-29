@@ -145,3 +145,10 @@ body:has(.ant-modal-mask) .app-footer {
 .small-icon {
   max-width: 2rem;
 }
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}

@@ -66,7 +66,7 @@ const CircleProgress = ({score}: Props) => {
         Math.PI * 1.5,
         converPercentToRadians(score) + Math.PI * 1.5
       );
-      canvasContext!.strokeStyle = "#21d07a";
+      canvasContext!.strokeStyle = "#b4d42a";
       canvasContext!.lineWidth = 2;
       canvasContext!.rotate((Math.PI / 180) * 90);
       canvasContext!.stroke();
